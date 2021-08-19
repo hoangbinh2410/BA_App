@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "dgSpecHash": "PeaK5fvHOgHPkioUn9gwsVFxskJtFsPR3bVpopl9ct+LNpcwy+Ux6+tTygOk4Ynw+CR/pYhaIu//Jy8+NDh8ow==",
+  "success": true,
+  "projectFilePath": "D:\\BA_Demo\\BA_App\\BA_App\\BA_App.iOS\\BA_App.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\dryioc.dll\\4.5.0\\dryioc.dll.4.5.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\prism.dryioc.forms\\8.0.0.1909\\prism.dryioc.forms.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\prism.forms\\8.0.0.1909\\prism.forms.8.0.0.1909.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.licensing\\19.2.0.56\\syncfusion.licensing.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.buttons\\19.2.0.56\\syncfusion.xamarin.buttons.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.core\\19.2.0.56\\syncfusion.xamarin.core.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.datasource\\19.2.0.56\\syncfusion.xamarin.datasource.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.gridcommon\\19.2.0.56\\syncfusion.xamarin.gridcommon.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\19.2.0.56\\syncfusion.xamarin.sfcombobox.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sflistview\\19.2.0.56\\syncfusion.xamarin.sflistview.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sfpicker\\19.2.0.56\\syncfusion.xamarin.sfpicker.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.essentials.interfaces\\1.5.3.2\\xamarin.essentials.interfaces.1.5.3.2.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.forms\\4.8.0.1364\\xamarin.forms.4.8.0.1364.nupkg.sha512"
+  ],
+  "logs": []
+}

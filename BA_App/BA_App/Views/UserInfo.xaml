@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BA_App.Views.UserInfo"
+             Title="Tài khoản">
+    <StackLayout Padding="0" >
+        <Frame BackgroundColor="Aqua" HorizontalOptions="FillAndExpand" HeightRequest="30">
+            <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
+                <Label></Label>
+                <Label Text="Tài khoản" Grid.Column="1" TextColor="Black" FontSize="28" HorizontalOptions="Fill"/>
+                <Image x:Name="ImClick" Source="" >
+                </Image>
+            </FlexLayout>
+        </Frame>
+        <FlexLayout Direction="Row" JustifyContent="Center" BackgroundColor="White" HeightRequest="80" AlignItems="Start" >
+
+            <Image Source ="" HeightRequest="70" WidthRequest="80" BackgroundColor="Transparent" />
+            <FlexLayout FlexLayout.Grow="1" Direction="Column" JustifyContent="Center" AlignItems="Start" >
+                <Label x:Name="name" Text="{Binding Myname}"  FontSize="24" />
+                <Label x:Name="id" Text="{Binding Myid}" FontSize="18" />
+            </FlexLayout>
+        </FlexLayout>
+        <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
+            <Image Source=""/>
+            <Label Text="Chức năng" FlexLayout.Grow="1" TextColor="DarkBlue" />
+        </FlexLayout>
+
+        <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
+            <Image Source=""/>
+            <Label Text="Đổi mật khẩu" FlexLayout.Grow="1" TextColor="DarkBlue" />
+        </FlexLayout>
+        <FlexLayout Direction="Row" JustifyContent="Center" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
+            <Image Source=""/>
+            <Label Text="Làm mới" FlexLayout.Grow="1" TextColor="DarkBlue" />
+        </FlexLayout>
+        <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
+            <Image Source=""/>
+            <Label Text="Khác" FlexLayout.Grow="1" TextColor="DarkBlue" />
+        </FlexLayout>
+    </StackLayout>
+
+</ContentPage>

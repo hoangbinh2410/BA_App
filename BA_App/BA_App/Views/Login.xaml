@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="BA_App.Views.Login">
+    <StackLayout Padding="0">
+        <Grid>
+            <StackLayout Padding="0" Margin="0">
+                <Frame BackgroundColor="Aqua" HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <FlexLayout JustifyContent="Center" Direction="Column" AlignItems="Center">
+                        <Image Source=""/>
+                        <Label HorizontalOptions="Center" Text="Phần mềm quản lý nhân viên"/>
+                    </FlexLayout>
+                </Frame>
+            </StackLayout>
+            <StackLayout Margin="15,150,15,0">
+                <Frame BackgroundColor="White" HasShadow="True"  HeightRequest="500" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="SIGN IN" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,25,0,0">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="30" WidthRequest="30" Padding="0" Margin="10">
+                                        <Image Source=""/>
+                                    </Frame>
+                                    <Entry x:Name="ID" Placeholder="User name" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,20,0,0" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                <FlexLayout >
+                                    <!--<Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="30" WidthRequest="30" Padding="0" Margin="10">
+                                        <Image Source="" Aspect="AspectFit" />
+                                    </Frame>-->
+                                    <inputLayout:SfTextInputLayout  Margin="50,0,50,0"
+                                                    Hint="Mật khẩu"
+                                                    LeadingViewPosition="Inside" 
+                                                    EnablePasswordVisibilityToggle="True"
+                                                    ContainerType="Outlined"
+                                                    FocusedColor="#00AFA0">
+                                        <Entry 
+                               FontSize="20"
+                               IsPassword="True"/>
+                                        <inputLayout:SfTextInputLayout.LeadingView>
+                                            <Image Source="shield.png"/>
+                                        </inputLayout:SfTextInputLayout.LeadingView>
+                                    </inputLayout:SfTextInputLayout>
+                                    <!--<Entry x:Name="Pass" Placeholder="Password"  IsPassword="True" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>-->
+                                </FlexLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <CheckBox IsChecked="False" Color="DarkBlue"/>
+                            <Label Text="Hiển thị mật khẩu" TextColor="DarkBlue" VerticalTextAlignment="Center" />
+                        </StackLayout>
+                        <StackLayout>
+                            <Button Text="SIGN IN" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50"></Button>
+                            <Label TextColor="Blue" 
+                       FontSize="20"
+                       Text="Quên mật khẩu ?"
+                       HorizontalTextAlignment="Center" />
+                            <!--Tình trạng đăng nhập-->
+                            <Label Text="{Binding StatusText}" 
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       TextColor="Red"/>
+                            <!--Xoay chờ load-->
+                            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                                   IsVisible="{Binding IsBusy}"
+                                   HeightRequest="30"
+                                   WidthRequest="30"
+                                   HorizontalOptions="Center"/>
+                        </StackLayout>
+                        <StackLayout>
+                            <!--Tạo tài khoản-->
+                            <Label Margin="0,20,0,0" 
+                       Text="-------- HOẶC --------" 
+                       HorizontalTextAlignment="Center" />
+                            <Label HorizontalOptions="Center"
+                       TextColor="Blue"
+                       FontSize="20"
+                       Text="Tạo tài khoản mới">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding CreateUserCommand}" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>
