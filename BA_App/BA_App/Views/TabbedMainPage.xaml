@@ -6,9 +6,10 @@
              xmlns:users="clr-namespace:BA_App.Views"
              x:Class="BA_App.Views.TabbedMainPage"
              BackgroundColor="Aqua"
+            xmlns:local="clr-namespace:BA_App"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom">
-    <users:ListViewUser Title="Danh sách nhân viên" IconImageSource=""/>
-    <users:AddUser Title="Thêm nhân viên" IconImageSource=""/>
-    <users:UserInfo Title="Thông tin nhân viên" IconImageSource=""/>
+    <users:ListViewUser Title="Danh sách nhân viên" IconImageSource="{local:Resource BA_App.img.list.png}"/>
+    <users:AddUser Title="Thêm nhân viên" IconImageSource="{local:Resource BA_App.img.add.png}"/>
+    <users:UserInfo Title="Thông tin nhân viên" IconImageSource="{local:Resource BA_App.img.info.png}"/>
 </TabbedPage>

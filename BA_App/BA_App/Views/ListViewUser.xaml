@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+             xmlns:local="clr-namespace:BA_App"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
               xmlns:syncfusion1="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
@@ -10,61 +11,70 @@
     <StackLayout>
         <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
             <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Direction="Row">
-                <Image x:Name="ImClicked" Source="">
-                    <Image.GestureRecognizers>
-                        <TapGestureRecognizer
-                   NumberOfTapsRequired="1" />
-                    </Image.GestureRecognizers>
-                </Image>
-
+                <ImageButton 
+                             Source="{local:Resource BA_App.img.delete.png}"                            
+                             Command="{Binding AddWorkerCommand}"/>
                 <Label  Text="Danh sách Nhân Viên" HorizontalTextAlignment="Center" TextColor="Black" FontSize="26" ></Label>
-                <Image Source=""/>
+                <ImageButton x:Name="userWorker"                        
+                             Source="{local:Resource BA_App.img.delete.png}"
+                             Clicked="Clicked_ManageNV"/>
             </FlexLayout>
         </Frame>
         <FlexLayout JustifyContent="Center" Direction="Row" AlignItems="Center">
             <Button Text="Tìm kiếm theo"
                         TextColor="White"
-                        
+                        Clicked="Button_Clicked"
                         HorizontalOptions="Center" VerticalOptions="Center"
                         Padding="10"
                         FontSize="20"
                         BackgroundColor="#009EDA"
                         x:Name="btnFilterByDepartment"/>
-            <syncfusion1:SfPicker x:Name="FilterByDepartment"
-                                      
+            <syncfusion1:SfPicker x:Name="FilterByDepartment"                                     
                                       ShowFooter="True" 
-                                      PickerMode="Dialog" 
-                                  HeaderText="Lựa chọn theo"/>
-                                      <!--Opened="picker_Opened"
+                                      PickerMode="Dialog"
+                                      ItemsSource="{Binding Department}"
+                                      HeaderText="Lựa chọn theo"
+                                      Opened="picker_Opened"
                                       Closed="picker_Closed" 
                                       OkButtonClicked="picker_OkButtonClicked" 
-                                      CancelButtonClicked="picker_CancelButtonClicked"-->  
-                                      
+                                      CancelButtonClicked="picker_CancelButtonClicked"/>
         </FlexLayout>
-        <Frame>
-            <syncfusion:SfListView 
-                                   ItemSize="80"
-                                   Margin="2.5,-2.5,2.5,0"
+        <!--Thanh tìm kiếm-->
+            <SearchBar Placeholder="Tìm theo tên..." 
+                       x:Name="filterWorker"
+                       Margin="-10,0,20,0"
+                       FontAttributes="Italic"
+                       TextChanged="FilterWorker_TextChanged"/>
+        <!--Danh sách nhân viên-->
+        <syncfusion:SfListView    Background="White"                                
                                    x:Name="SwipeListView"
-                                   SwipeOffset="200"
+                                  SwipeOffset="200"
+                                  ItemSize="100"
+                                  
+                                  ItemsSource="{Binding WorkList}"
                                    AllowSwiping="True">
-                <!--<ListView.HeaderTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Label x:Name="label_1" Text="The Header Template" />
-                        </Grid>  
-                   </DataTemplate>  
-                </ListView.HeaderTemplate>-->
-                <syncfusion:SfListView.LeftSwipeTemplate>
-                    <DataTemplate>
-                        <FlexLayout Direction="Row"  AlignItems="Start" JustifyContent="Center" >
-                            <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+            <!--Sự kiện vuốt trái-->
+            <syncfusion:SfListView.LeftSwipeTemplate >
+                <DataTemplate>
+                    <Grid BackgroundColor="#81F7F3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid HorizontalOptions="Fill" 
+                                  VerticalOptions="Fill" 
+                                  Grid.Column="0">
+                            <Grid VerticalOptions="Center" HorizontalOptions="Center">
                                 <Image Grid.Column="0"
                                            Grid.Row="0"
                                            BackgroundColor="Transparent"                                       
                                            HeightRequest="35"
                                            WidthRequest="35"
-                                           Source="delete.png" >
+                                           Source="{local:Resource BA_App.img.avatar.png}" >
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer   
                                                 Command="{Binding Source={x:Reference SwipeListView},
@@ -72,85 +82,113 @@
                                                 CommandParameter="{Binding .}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                            </FlexLayout>
-                            <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+                            </Grid>
+                        </Grid>                                      
+                        <Grid HorizontalOptions="Fill" 
+                                  VerticalOptions="Fill" 
+                                  Grid.Column="1"
+                                  Margin="0,0,0,0">
+                            <Grid VerticalOptions="Center" HorizontalOptions="Center">
                                 <Image Grid.Column="0"
                                            Grid.Row="0"
-                                           BackgroundColor="Transparent"                                       
                                            HeightRequest="35"
                                            WidthRequest="35"
-                                           Source="delete.png" >
+                                           BackgroundColor="Transparent"
+                                           Source="{local:Resource BA_App.img.avatar.png}" >
                                     <Image.GestureRecognizers>
-                                        <TapGestureRecognizer   
+                                        <TapGestureRecognizer  
                                                 Command="{Binding Source={x:Reference SwipeListView},
-                                                Path=BindingContext.DeleteWorkerCommand}"
+                                                Path=BindingContext.UpdateWorkerCommand}"
                                                 CommandParameter="{Binding .}"/>
                                     </Image.GestureRecognizers>
                                 </Image>
-                            </FlexLayout>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                    <!--<FlexLayout >
+                        <FlexLayout>
+                            <Image Source="{local:Resource BA_App.img.delete.png}" ></Image>
+                            <Label Text="Sửa"></Label>
                         </FlexLayout>
-                    </DataTemplate>
-                </syncfusion:SfListView.LeftSwipeTemplate>
-                <!--View tiêu đề chữ cái-->
-                <syncfusion:SfListView.GroupHeaderTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout BackgroundColor="#E4E4E4">
-                                    <Label Text="{Binding Key}" 
+                        <FlexLayout>
+                            <Image Source="{local:Resource BA_App.img.delete.png}" ></Image>
+                            <Label Text="Xóa"></Label>
+                        </FlexLayout>
+                    </FlexLayout>-->
+                    <!--<Image                                      
+                                           Source="{local:Resource BA_App.img.delete.png}" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer   
+                                                Command="{Binding Source={x:Reference SwipeListView},
+                                                Path=BindingContext.DeleteWorkerCommand}"
+                                                CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Xoa"></Label>
+                       
+                            <Image                                     
+                                           Source="{local:Resource BA_App.img.add.png}" >
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer   
+                                                Command="{Binding Source={x:Reference SwipeListView},
+                                                Path=BindingContext.DeleteWorkerCommand}"
+                                                CommandParameter="{Binding .}"/>
+                                </Image.GestureRecognizers>
+                            </Image>
+                            <Label Text="Sua"></Label>-->
+                        
+                </DataTemplate>
+            </syncfusion:SfListView.LeftSwipeTemplate>
+            <!--View tiêu đề chữ cái-->
+            <syncfusion:SfListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout BackgroundColor="#E4E4E4">
+                                <Label Text="{Binding Key}" 
                          FontSize="22" 
                          FontAttributes="Bold"
                          VerticalOptions="Center" 
                          HorizontalOptions="Start" 
                          Margin="20,0,0,0" />
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </syncfusion:SfListView.GroupHeaderTemplate>
-                <syncfusion:SfListView.ItemTemplate>
-                    <DataTemplate>
-                        <FlexLayout FlexLayout.Grow="1" Direction="Column" AlignItems="Start" JustifyContent="Center">
-                            <sfavatar:SfAvatarView ContentType="Custom"
-                                                   ImageSource=""
-                                                   VerticalOptions="Center"
-                                                   HorizontalOptions="Center"   
-                                                   HeightRequest="50"
-                                                   CornerRadius="100"
-                                                   WidthRequest="50" 
-                                                   Grid.Column="0"
-                                                   Grid.RowSpan="2"
-                                                   Margin="-20,0,0,7.5"/>
-                            <Label Grid.Row="0"
-                                   Grid.Column="1"
-                                   Text="" 
-                                   FontAttributes="Bold"  
-                                   TextColor="Teal"
-                                   FontSize="21" />
-                            <Label Grid.Row="1" 
-                                   Grid.Column="1"
-                                   Text=""
-                                   FontSize="15"/>
-                            <Label Grid.Row="0"
-                                   Grid.Column="2"
-                                   Text=""   
-                                   FontSize="15" 
-                                   Margin="0,7.5,0,0"/>
-                            <Label Grid.Row="1" 
-                                   Grid.Column="2"
-                                   Text=""
-                                   FontSize="15"/>
-                            <Label Grid.RowSpan="2" 
-                                   Grid.Column="3"
-                                   Text=""
-                                   TextColor="Teal"
-                                   FontSize="15"
-                                   Margin="0,17.5,0,0"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </syncfusion:SfListView.GroupHeaderTemplate>
+            <syncfusion:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <FlexLayout >
+                        <FlexLayout >
+                            <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="60" WidthRequest="60"
+                                                   ImageSource="{local:Resource BA_App.img.avatar.png}"
+                                                   />
                         </FlexLayout>
-                    </DataTemplate>
-                </syncfusion:SfListView.ItemTemplate>
-            </syncfusion:SfListView>
-        </Frame>
-    </StackLayout>
 
+                        <FlexLayout  Background="red">
+                        <Label Text="{Binding Ten}" 
+                                   FontAttributes="Bold"  
+                                   TextColor="Black"
+                                   FontSize="18" />
+                        <Label TextColor="Black"
+                                   Text="{Binding Manv}"
+                                   FontSize="15"/>
+                        </FlexLayout>
+                        <FlexLayout Background="aqua">
+                        <Label TextColor="Black"
+                                   Text="{Binding Diachi}"   
+                                   FontSize="15" 
+                                   />
+                        <Label TextColor="Black"
+                                   Text="{Binding Gioitinh}"
+                                   FontSize="15"/>
+                        <Label TextColor="Black"
+                                   Text="{Binding DateFix}"                                  
+                                   FontSize="15"/>
+                        </FlexLayout>
+                    </FlexLayout >              
+                </DataTemplate>
+            </syncfusion:SfListView.ItemTemplate>
+        </syncfusion:SfListView>
+    </StackLayout>
 </ContentPage>

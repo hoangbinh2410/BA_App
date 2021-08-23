@@ -19,15 +19,13 @@ namespace BA_App
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/TabbedMainPage");
+            await NavigationService.NavigateAsync("NavigationPage/UpdatePassWord");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();
-
             containerRegistry.RegisterForNavigation<NavigationPage>();
-            containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<Login, LoginViewModel>();
             containerRegistry.RegisterForNavigation<AddPassWord, AddPassWordViewModel>();
             containerRegistry.RegisterForNavigation<TabbedMainPage, TabbedMainPageViewModel>();

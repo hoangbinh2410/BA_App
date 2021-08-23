@@ -17,7 +17,7 @@ namespace BA_App.Views {
     public partial class ListViewUser : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
-        private global::Xamarin.Forms.Image ImClicked;
+        private global::Xamarin.Forms.ImageButton userWorker;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Xamarin.Forms.Button btnFilterByDepartment;
@@ -26,14 +26,18 @@ namespace BA_App.Views {
         private global::Syncfusion.SfPicker.XForms.SfPicker FilterByDepartment;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
+        private global::Xamarin.Forms.SearchBar filterWorker;
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private global::Syncfusion.ListView.XForms.SfListView SwipeListView;
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
             global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(ListViewUser));
-            ImClicked = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Image>(this, "ImClicked");
+            userWorker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.ImageButton>(this, "userWorker");
             btnFilterByDepartment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.Button>(this, "btnFilterByDepartment");
             FilterByDepartment = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Syncfusion.SfPicker.XForms.SfPicker>(this, "FilterByDepartment");
+            filterWorker = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Xamarin.Forms.SearchBar>(this, "filterWorker");
             SwipeListView = global::Xamarin.Forms.NameScopeExtensions.FindByName<global::Syncfusion.ListView.XForms.SfListView>(this, "SwipeListView");
         }
     }

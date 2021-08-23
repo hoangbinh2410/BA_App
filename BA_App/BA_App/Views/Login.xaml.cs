@@ -9,7 +9,8 @@ namespace BA_App.Views
             InitializeComponent();
         }
 
-        private void OnFilterTextChanged(object sender, TextChangedEventArgs e)
+
+        private void OnChanged_RememberInfomation(object sender, ToggledEventArgs e)
         {
 
         }

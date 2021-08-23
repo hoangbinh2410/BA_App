@@ -9,19 +9,24 @@ namespace BA_App.ViewModels
 {
     public class ViewModelBase : BindableBase, IInitialize, INavigationAware, IDestructible
     {
-        protected INavigationService NavigationService { get; private set; }
-
-        private string _title;
+       // protected INavigationService NavigationService { get; private set; }
+        private bool _isBusy = false;
+        private string _title = string.Empty;
         public string Title
         {
             get { return _title; }
             set { SetProperty(ref _title, value); }
         }
-
-        public ViewModelBase(INavigationService navigationService)
+        public bool IsBusy
         {
-            NavigationService = navigationService;
+            get { return _isBusy; }
+            set { SetProperty(ref _isBusy, value); }
         }
+
+        //public ViewModelBase(INavigationService navigationService)
+        //{
+        //    NavigationService = navigationService;
+        //}
 
         public virtual void Initialize(INavigationParameters parameters)
         {

@@ -1,10 +1,39 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="img\add.png" />
+    <None Remove="img\avatar.png" />
+    <None Remove="img\date.png" />
+    <None Remove="img\delete.png" />
+    <None Remove="img\info.png" />
+    <None Remove="img\list.png" />
+    <None Remove="img\lock.png" />
+    <None Remove="img\reset.png" />
+    <None Remove="img\setting.png" />
+    <None Remove="img\sex.png" />
+    <None Remove="img\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="img\avatar.png" />
+    <EmbeddedResource Include="img\reset.png" />
+    <EmbeddedResource Include="img\date.png" />
+    <EmbeddedResource Include="img\delete.png" />
+    <EmbeddedResource Include="img\add.png" />
+    <EmbeddedResource Include="img\info.png" />
+    <EmbeddedResource Include="img\list.png" />
+    <EmbeddedResource Include="img\lock.png" />
+    <EmbeddedResource Include="img\setting.png" />
+    <EmbeddedResource Include="img\sex.png" />
+    <EmbeddedResource Include="img\user.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Syncfusion.Xamarin.Buttons" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.Core" Version="19.2.0.56" />
     <PackageReference Include="Syncfusion.Xamarin.SfComboBox" Version="19.2.0.56" />

@@ -4,6 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:local="clr-namespace:BA_App"
              x:Class="BA_App.Views.Login">
     <StackLayout Padding="0">
         <Grid>
@@ -16,48 +17,57 @@
                 </Frame>
             </StackLayout>
             <StackLayout Margin="15,150,15,0">
-                <Frame BackgroundColor="White" HasShadow="True"  HeightRequest="500" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="White" HasShadow="True"  HeightRequest="700" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
                             <Label Text="SIGN IN" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Margin="0,25,0,0">
-                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="50" HorizontalOptions="FillAndExpand">
-                                <StackLayout Orientation="Horizontal">
-                                    <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="30" WidthRequest="30" Padding="0" Margin="10">
-                                        <Image Source=""/>
-                                    </Frame>
-                                    <Entry x:Name="ID" Placeholder="User name" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>
-                                </StackLayout>
-                            </Frame>
-                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,20,0,0" CornerRadius="50" HorizontalOptions="FillAndExpand">
-                                <FlexLayout >
-                                    <!--<Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="30" WidthRequest="30" Padding="0" Margin="10">
-                                        <Image Source="" Aspect="AspectFit" />
-                                    </Frame>-->
-                                    <inputLayout:SfTextInputLayout  Margin="50,0,50,0"
+                            <FlexLayout>
+                                <inputLayout:SfTextInputLayout
+                                                    Margin="50,0,50,0"
+                                                    Hint="Tài khoản"
+                                                    LeadingViewPosition="Inside" 
+                                                    ContainerType="Outlined"
+                                                    FocusedColor="#00AFA0">
+                                    <Entry Text="{Binding UserName}"
+                               FontSize="20"/>
+                                    <inputLayout:SfTextInputLayout.LeadingView>
+                                        <Image Source="{local:Resource BA_App.img.avatar.png}"/>
+                                    </inputLayout:SfTextInputLayout.LeadingView>
+                                </inputLayout:SfTextInputLayout>
+                            </FlexLayout>
+                            <FlexLayout >
+                                <inputLayout:SfTextInputLayout  Margin="50,0,50,0"
                                                     Hint="Mật khẩu"
                                                     LeadingViewPosition="Inside" 
                                                     EnablePasswordVisibilityToggle="True"
                                                     ContainerType="Outlined"
                                                     FocusedColor="#00AFA0">
-                                        <Entry 
-                               FontSize="20"
-                               IsPassword="True"/>
-                                        <inputLayout:SfTextInputLayout.LeadingView>
-                                            <Image Source="shield.png"/>
-                                        </inputLayout:SfTextInputLayout.LeadingView>
-                                    </inputLayout:SfTextInputLayout>
-                                    <!--<Entry x:Name="Pass" Placeholder="Password"  IsPassword="True" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>-->
-                                </FlexLayout>
-                            </Frame>
+                                    <Entry Text="{Binding PassWord}"
+                                       FontSize="20"
+                                       IsPassword="True"/>
+                                    <inputLayout:SfTextInputLayout.LeadingView>
+                                        <Image Source="{local:Resource BA_App.img.lock.png}"/>
+                                    </inputLayout:SfTextInputLayout.LeadingView>
+                                </inputLayout:SfTextInputLayout>
+                                <!--<Entry x:Name="Pass" Placeholder="Password"  IsPassword="True" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>-->
+                            </FlexLayout>
                         </StackLayout>
                         <StackLayout Orientation="Horizontal">
-                            <CheckBox IsChecked="False" Color="DarkBlue"/>
-                            <Label Text="Hiển thị mật khẩu" TextColor="DarkBlue" VerticalTextAlignment="Center" />
+                            <!--Nhớ thông tin tài khoản-->
+                            <TableView Margin="100,-20,100,0"  HeightRequest="50">
+                                <TableRoot>
+                                    <TableSection Title="">
+                                        <SwitchCell Text="Nhớ thông tin" 
+                                        On="{Binding ISToggle}" 
+                                        OnChanged="OnChanged_RememberInfomation"/>
+                                    </TableSection>
+                                </TableRoot>
+                            </TableView>
                         </StackLayout>
                         <StackLayout>
-                            <Button Text="SIGN IN" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50"></Button>
+                            <Button Text="SIGN IN" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50" Command="{Binding LoginCommand}"></Button>
                             <Label TextColor="Blue" 
                        FontSize="20"
                        Text="Quên mật khẩu ?"
@@ -93,5 +103,4 @@
             </StackLayout>
         </Grid>
     </StackLayout>
-
 </ContentPage>

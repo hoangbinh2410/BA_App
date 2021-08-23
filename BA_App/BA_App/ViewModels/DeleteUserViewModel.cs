@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BA_App.ViewModels
 {
-    public class DeleteUserViewModel : BindableBase
+    public class DeleteUserViewModel : ViewModelBase
     {
         public DeleteUserViewModel()
         {

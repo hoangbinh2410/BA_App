@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "M+4siFNEm66s7ojw1wPH7cF+vCp1V7u5p6HWo/xKhr9IfByTGugepiXieiW6EzZE/IMpvjLeC0mRvQZ/RfeslQ==",
+  "dgSpecHash": "xFudhYJAWAzuv2iaTzb7/xAzRq+enVofAEex95jV4kcBzLPqH+j6/oDGbD3xcLZxdz3sYt49bWWNDhaQlHXk0w==",
   "success": true,
   "projectFilePath": "D:\\BA_Demo\\BA_App\\BA_App\\BA_App.Android\\BA_App.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\dryioc.dll\\4.5.0\\dryioc.dll.4.5.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\prism.core\\8.0.0.1909\\prism.core.8.0.0.1909.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\prism.dryioc.forms\\8.0.0.1909\\prism.dryioc.forms.8.0.0.1909.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\prism.forms\\8.0.0.1909\\prism.forms.8.0.0.1909.nupkg.sha512",

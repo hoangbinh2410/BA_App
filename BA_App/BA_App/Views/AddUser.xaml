@@ -3,12 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
+             xmlns:local="clr-namespace:BA_App"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
-             x:Class="BA_App.Views.AddUser">
-    <StackLayout>
+             x:Class="BA_App.Views.AddUser"
+             
+             >
+    <StackLayout >
         <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
             <FlexLayout AlignItems="Center" Direction="Row" JustifyContent="SpaceBetween">
                 <Image Source=''/>
@@ -16,66 +19,66 @@
                 <Label></Label>
             </FlexLayout>
         </Frame>
-        <FlexLayout Direction="Column" JustifyContent="SpaceBetween"  Margin="20,25,20,0">
+        <FlexLayout Direction="Column" AlignItems="Center"  JustifyContent="Start"   >
             <!--Add Tên-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center"  >
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
+                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Tên"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="blue">
                     <Entry Text="{Binding Name}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source=""/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
-            <!--Add Dia chi-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
-                                                Hint="Tên"
+            <!--Add Địa chỉ nhan vien-->
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
+                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                                                Hint="Địa chỉ"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Adress}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source=""/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Add Ma nhan vien-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center" >
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
-                                                Hint="Tên"
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
+                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                                                Hint="Mã nhân viên"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Manv}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source=""/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Add phong-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center" >
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
-                                                Hint="Tên"
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
+                <inputLayout:SfTextInputLayout FlexLayout.Grow="1"
+                                                Hint="Phòng"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Department}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source=""/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Add Gioi tinh-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center" >
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
+                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Giới tính"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
@@ -85,8 +88,6 @@
                                          MaximumDropDownHeight="200" 
                                          IsEditableMode="false"
                                          SelectedItem="{Binding Gender}"
-                                         Grid.Column="1"
-                                         Grid.Row="1"
                                          TextSize="20">
                         <combobox:SfComboBox.ComboBoxSource>
                             <ListCollection:List x:TypeArguments="x:String">
@@ -96,13 +97,13 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="lavatory.png"/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Add Ngay-->
-            <FlexLayout Direction="Row" JustifyContent="Start" BackgroundColor="White" HeightRequest="50" AlignItems="Center">
-                <inputLayout:SfTextInputLayout  Margin="30,0,30,0"
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
+                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Ngày sinh"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
@@ -112,14 +113,14 @@
                             TextColor="Blue"
                             FontSize="25"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="schedule.png"/>
+                        <Image Source="{local:Resource BA_App.img.add.png}"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <buttons:SfButton Command="{Binding AddWorkerCommand}"
                               FontSize="30"
                               Text="Lưu"
-                              Margin="100,0,100,0"
+                              Margin="100,20,110,0"
                               CornerRadius="100"
                               WidthRequest="100"
                               HeightRequest="50"

@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BA_App.ViewModels
 {
-    public class TabbedMainPageViewModel : BindableBase
+    public class TabbedMainPageViewModel : ViewModelBase
     {
         public TabbedMainPageViewModel()
         {

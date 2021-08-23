@@ -647,3 +647,4 @@ D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe54
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe544294a8b\SfSwitchElementViewRenderer.java
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe544294a8b\SfTouchEffectMaterialDesignRenderer.java
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe544294a8b\TouchEffectRenderer.java
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\assets\Newtonsoft.Json.dll

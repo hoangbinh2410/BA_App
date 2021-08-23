@@ -7,6 +7,7 @@ public class MonoPackageManager_Resources {
 		"DryIoc.dll",
 		"Essential.Interfaces.dll",
 		"FormsViewGroup.dll",
+		"Newtonsoft.Json.dll",
 		"Prism.dll",
 		"Prism.DryIoc.Forms.dll",
 		"Prism.Forms.dll",

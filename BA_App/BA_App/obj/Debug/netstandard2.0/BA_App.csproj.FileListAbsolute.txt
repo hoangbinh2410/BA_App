@@ -1,7 +1,6 @@
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\BA_App.csproj.AssemblyReference.cache
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\App.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\Login.xaml.g.cs
-D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\MainPage.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\BA_App.AssemblyInfoInputs.cache
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\BA_App.AssemblyInfo.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\BA_App.csproj.CoreCompileInputs.cache
@@ -18,3 +17,4 @@ D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\TabbedMainPage.xa
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\UserInfo.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\DeleteUser.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\UpdateUser.xaml.g.cs
+D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\UpdatePassWord.xaml.g.cs
