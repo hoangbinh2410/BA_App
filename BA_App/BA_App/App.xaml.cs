@@ -19,7 +19,7 @@ namespace BA_App
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/UpdatePassWord");
+            await NavigationService.NavigateAsync("NavigationPage/Login");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

@@ -38,6 +38,7 @@ namespace BA_App.DataAPI
             }
             return result;
         }
+        //Thong tin nguoi dung
         public static ResponseModel<User> GetInfoUser(Login login)
         {
             
@@ -65,6 +66,7 @@ namespace BA_App.DataAPI
             }
             return resultAPI;
         }
+        //Thay doi mk
         public static ResponseModel<User> ChangeUser(Login login)
         {
 

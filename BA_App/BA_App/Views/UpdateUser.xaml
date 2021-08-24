@@ -18,9 +18,9 @@
                 <Label></Label>
             </FlexLayout>
         </Frame>
-        <FlexLayout Margin="15,20,15,5" HeightRequest="50">
+        <FlexLayout Direction="Column" AlignItems="Center"  JustifyContent="Start">
             <!--Sửa Tên-->
-            <FlexLayout   >
+            <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Tên"
                                                 LeadingViewPosition="Inside" 
@@ -40,7 +40,7 @@
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Adress}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
                         <Image Source="{local:Resource BA_App.img.add.png}"/>
@@ -54,7 +54,7 @@
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Manv}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
                         <Image Source="{local:Resource BA_App.img.add.png}"/>
@@ -68,7 +68,7 @@
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Name}"
+                    <Entry Text="{Binding Department}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
                         <Image Source="{local:Resource BA_App.img.add.png}"/>
@@ -118,10 +118,10 @@
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
-            <buttons:SfButton Command="{Binding AddWorkerCommand}"
+            <buttons:SfButton Command="{Binding UpdateCommand}"
                               FontSize="30"
                               Text="Sửa"
-                              Margin="100,0,100,0"
+                              Margin="100,20,110,0"
                               CornerRadius="100"
                               WidthRequest="100"
                               HeightRequest="50"

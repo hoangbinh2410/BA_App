@@ -69,6 +69,11 @@ namespace BA_App.ViewModels
                 }
 
             }
+            StatusText = "";
+            MessagingCenter.Subscribe<AddUserViewModel, string>(this, "CreateUser", (sender, userName) =>
+            {
+                UserName = userName;
+            });
         }
         private async void OnLoginClicked(object obj)
         {

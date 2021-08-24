@@ -90,49 +90,47 @@ namespace BA_App.DataAPI
             return result;
         }
         //update nv
-        //public static bool UpdateWorker(Nhanvien nhanvien)
-        //{
-        //    bool result = false;
-        //    ResponseModel<bool> resultAPI = new ResponseModel<bool>();
-        //    try
-        //    {
-        //        //if (string.IsNullOrEmpty(VariableSharing._token))
-        //        //{
-        //        //    VariableSharing._token = BaseGetToken.GetToken();
-        //        //}
-        //        Uri urlapi = new Uri(VariableSharing.ServerApiUrl + VariableSharing.UpdateWorker);
-        //        using (var wc = new HttpClient())
-        //        {
-        //            //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");
-        //            var modelString = JsonConvert.SerializeObject(worker);
-        //            var content = new StringContent(modelString, Encoding.UTF8, "application/json");
-        //            var jsonResult = wc.PostAsync($@"{urlapi}", content).Result.Content.ReadAsStringAsync().Result;
-        //            resultAPI = JsonConvert.DeserializeObject<ResponseModel<bool>>(jsonResult);
-        //        }
-        //        if (resultAPI.Success)
-        //        {
-        //            result = resultAPI.Data;
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
-        //        return result;
-        //    }
-        //    return result;
-        //}
+        public static bool UpdateWorker(Nhanvien nhanvien)
+        {
+            //bool result = false;
+            ResponseModel<Nhanvien> resultAPI = new ResponseModel<Nhanvien>();
+            try
+            {
+                string url = "http://192.168.108.2:8080/api/Home/UpdateNv";
+                using (var wc = new HttpClient())
+                {
+                    //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");
+                    var modelString = JsonConvert.SerializeObject(nhanvien);
+                    var content = new StringContent(modelString, Encoding.UTF8, "application/json");
+                    var jsonResult = wc.PostAsync(url, content).Result.Content.ReadAsStringAsync().Result;
+                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<Nhanvien>>(jsonResult);
+                }
+                if (resultAPI != null)
+                {
+                    return resultAPI.success;
+                }
+            }
+            catch (Exception ex)
+            {
+               // FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
+                return resultAPI.success;
+            }
+            return resultAPI.success;
+        }
         //Xoa nv
         public static bool DeleteWorker(int IDnv)
         {
             bool result = false;
             ResponseModel<bool> resultAPI = new ResponseModel<bool>();
-            string URL = "http://192.168.108.2:8080/api/Home/" + $"{IDnv}";
-
+            string URL = "http://192.168.108.2:8080/api/Home/DeleteNv/";
+            string urlParameters = $"{IDnv}";
+            //string urlParameters = "";
             HttpClient client = new HttpClient();
+            client.BaseAddress = new Uri(URL);
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                HttpResponseMessage response = client.GetAsync(URL).Result;
+                HttpResponseMessage response = client.GetAsync(urlParameters).Result;
                 if (response.IsSuccessStatusCode)
                 {
                     var dataObjects = response.Content.ReadAsStreamAsync();
@@ -141,14 +139,15 @@ namespace BA_App.DataAPI
                     string sResponseFromServer = tReader.ReadToEnd();
                     resultAPI = JsonConvert.DeserializeObject<ResponseModel<bool>>(sResponseFromServer);
                 }
-                if (resultAPI.success)
+                if (resultAPI !=null)
                 {
-                    result = resultAPI.data;
+                    result = resultAPI.success;
+                    return result;
                 }
             }
             catch (Exception ex)
             {
-      
+                //FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
                 return result;
             }
             return result;

@@ -76,20 +76,17 @@ namespace BA_App.ViewModels
         //Xóa nhân viên
         private async void DeleteWorkerClicked(Nhanvien nhanvien)
         {
-            var properties = Application.Current.Properties;
-            if (properties.ContainsKey("UsersID"))
-            {
-                WorkList = CRUD_Nhanvien.GetListWorker();
-                var query = from list in WorkList
-                            where list.Manv == (string)properties["UsersID"]
-                            select list;
-                nhanvien = query.FirstOrDefault();
-            }
+            List<Nhanvien> list;
+            list = CRUD_Nhanvien.GetListWorker();
+            var query = (from a in list
+                         where a.Manv.Trim() == nhanvien.Manv.Trim()
+                         select a.ID).FirstOrDefault();
             bool answer = await Application.Current.MainPage.DisplayAlert("Bạn muốn xóa?",nhanvien.Ten, "Có", "Không");
             Debug.WriteLine("Answer: " + answer);
             if (answer)
             {
-                var boolresult = CRUD_Nhanvien.DeleteWorker(nhanvien.ID);
+                var boolresult = CRUD_Nhanvien.DeleteWorker(query);
+                list = CRUD_Nhanvien.GetListWorker();
             }
             return;
         }
@@ -101,7 +98,7 @@ namespace BA_App.ViewModels
         {
             //Chuyển đến trang WorkerUpdate
             var param = new NavigationParameters();
-            param.Add("Worker", objWorker);
+            param.Add("Nhanvien", objWorker);
             await _navigationService.NavigateAsync("UpdateUser", param);
         }
         private async void AddWorkerClicked()

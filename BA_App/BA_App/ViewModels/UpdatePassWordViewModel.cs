@@ -42,11 +42,18 @@ namespace BA_App.ViewModels
         public string RePassword { get; set; }
         public string NewPassword { get; set; }
         public Command UpdatePassCommand { get; }
+        private User _objUser { get; set; }
         private readonly INavigationService _navigationService;
         public UpdatePassWordViewModel(INavigationService navigationService)
         {
             UpdatePassCommand = new Command(UpdatePassClicked);
             _navigationService = navigationService;
+        }
+        public override void OnNavigatedTo(INavigationParameters parameters)
+        {
+            _objUser = parameters.GetValue<User>("User");
+            MessagingCenter.Send<UpdatePassWordViewModel, User>(this, "ChangePW", _objUser);
+            MessagingCenter.Send<UpdatePassWordViewModel, INavigationService>(this, "ChangePW", _navigationService);
         }
         private async void UpdatePassClicked(object obj)
         {

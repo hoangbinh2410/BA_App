@@ -158,35 +158,54 @@
             </syncfusion:SfListView.GroupHeaderTemplate>
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <FlexLayout >
-                        <FlexLayout >
-                            <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="60" WidthRequest="60"
+                    <Grid Padding="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.8*" />
+                            <ColumnDefinition Width="0.2*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.5*" />
+                            <RowDefinition Height="0.5*" />
+                        </Grid.RowDefinitions>
+                        <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="60" WidthRequest="60"
                                                    ImageSource="{local:Resource BA_App.img.avatar.png}"
+                                                   Grid.Column="0"
+                                                   Grid.RowSpan="2"
+                                                   Margin="-20,0,0,7.5"
                                                    />
-                        </FlexLayout>
-
-                        <FlexLayout  Background="red">
                         <Label Text="{Binding Ten}" 
                                    FontAttributes="Bold"  
                                    TextColor="Black"
-                                   FontSize="18" />
+                                   FontSize="18"
+                                   Grid.Row="0"
+                                   Grid.Column="1"/>
                         <Label TextColor="Black"
                                    Text="{Binding Manv}"
-                                   FontSize="15"/>
-                        </FlexLayout>
-                        <FlexLayout Background="aqua">
+                                   FontSize="15"
+                                   Grid.Row="1" 
+                                   Grid.Column="1"/>
+
                         <Label TextColor="Black"
                                    Text="{Binding Diachi}"   
                                    FontSize="15" 
+                                   Grid.Row="0"
+                                   Grid.Column="2"
+                                   Margin="0,7.5,0,0"
                                    />
                         <Label TextColor="Black"
-                                   Text="{Binding Gioitinh}"
-                                   FontSize="15"/>
+                                   Text="{Binding Gioitinh}" 
+                                   FontSize="15"
+                                   Grid.Row="1" 
+                                   Grid.Column="2"/>
                         <Label TextColor="Black"
-                                   Text="{Binding DateFix}"                                  
-                                   FontSize="15"/>
-                        </FlexLayout>
-                    </FlexLayout >              
+                                   Grid.RowSpan="2" 
+                                   Grid.Column="3"
+                                   Text="{Binding DateFix}"                                 
+                                   FontSize="15"
+                                   Margin="0,17.5,0,0"/>
+                    </Grid>
                 </DataTemplate>
             </syncfusion:SfListView.ItemTemplate>
         </syncfusion:SfListView>
