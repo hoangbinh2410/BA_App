@@ -24,9 +24,9 @@ namespace BA_App.Views
                 PropertyName = "Name",
                 KeySelector = (object obj1) =>
                 {
-                    var item = (obj1 as Nhanvien);
+                    var item = (obj1 as DataEmployee);
                     //var result = item.Name[0];
-                    return item.Ten[0].ToString();
+                    return item.EmployeeName[0].ToString();
                 }
             });
         }

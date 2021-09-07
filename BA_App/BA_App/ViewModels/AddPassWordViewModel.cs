@@ -6,6 +6,8 @@ using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -13,9 +15,63 @@ namespace BA_App.ViewModels
 {
     public class AddPassWordViewModel : ViewModelBase
     {
+        private string _reerpass = string.Empty;
+        private string _ermanv = string.Empty;
+        private string _ername = string.Empty;
+        private bool _name = false;
+        private bool _manv = false;
+        private string _erpass = string.Empty;
+        private bool _pass = false;
+        private bool _repass = false;        
         private string _statusText = string.Empty;
         private string _colorText = string.Empty;
         private bool _iSCreateUser = false;
+        //Kiểm tra mật khẩu
+        public bool Pass
+        {
+            get { return _pass; }
+            set { SetProperty(ref _pass, value); }
+
+        }
+        public string ErPass
+        {
+            get { return _erpass; }
+            set { SetProperty(ref _erpass, value); }
+        }
+        //Kiểm tra nhập lại mật khẩu
+        public bool RePass
+        {
+            get { return _repass; }
+            set { SetProperty(ref _repass, value); }
+
+        }
+        public string ReErPass
+        {
+            get { return _reerpass; }
+            set { SetProperty(ref _reerpass, value); }
+        }
+        //Kiểm tra nhập tài khoản
+        public bool Name
+        {
+            get { return _name; }
+            set { SetProperty(ref _name, value); }
+        }
+        public string ErName
+        {
+            get { return _ername; }
+            set { SetProperty(ref _ername, value); }
+        }
+        // Kiểm tra nhập mã nhân viên
+        public bool Manv
+        {
+            get { return _manv; }
+            set { SetProperty(ref _manv, value); }
+        }
+        public string ErManv
+        {
+            get { return _ermanv; }
+            set { SetProperty(ref _ermanv, value); }
+        }
         // Khai báo StatusText binding 2 chiều
         public string StatusText
         {
@@ -61,52 +117,89 @@ namespace BA_App.ViewModels
            
             await Task.Delay(1000);
             //Kiểm tra xem các thông tin có null hoặc rỗng không
-            if (string.IsNullOrEmpty(CreateUserName) || string.IsNullOrEmpty(CreatePassword) || string.IsNullOrEmpty(CreateManv))
+            if (string.IsNullOrEmpty(CreateUserName) || string.IsNullOrEmpty(CreatePassword) || string.IsNullOrEmpty(CreateManv) || string.IsNullOrEmpty(ISCreatePassword))
             {
                 IsBusy = false;
                 StatusText = "Thông tin chưa đầy đủ";
                 ColorText = "red";
-                return;
-            }
-
-
-            if (CreatePassword == ISCreatePassword)
-            {
-                User objc = new User();
-                objc.Name = CreateUserName;
-                objc.Pass = CreatePassword;
-                objc.Manv = CreateManv;
-                try
+                if (string.IsNullOrEmpty(CreateUserName))
                 {
-                    //Gửi dữ liệu đi tạo tải khoản mới
-                    var Rerult = CRU_User.CreateUser(objc);
-                    if (Rerult == "Thành công !!!")
-                    {
-                        //StatusText = Rerult;
-                        //ColorText = "blue";
-                        await Application.Current.MainPage.DisplayAlert("Thông báo", "Đăng ký thành công!!!", "ok");
-                        //Đăng ký thành công, chuyển về trang Login, và remote trang tạo tài khoản
-                        await _navigationService.GoBackAsync();
-                        //gửi tên tài khoản mới tạo đến trang Login
-                        MessagingCenter.Send<AddPassWordViewModel, string>(this, "CreateUser", CreateUserName);
-                    }
-                    else
-                    {
-                        StatusText = Rerult;
-                        ColorText = "red";
-                    }
+                    Name = true;
+                    ErName = "Nhập tài khoản";
                 }
-                catch (Exception ex)
+                if (string.IsNullOrEmpty(CreatePassword))
                 {
-                    //FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
+                    Pass = true;
+                    ErPass = "Nhập mật khẩu";
                 }
+                if (string.IsNullOrEmpty(CreateManv))
+                {
+                    Manv = true;
+                    ErManv = "Nhập  mã nhân viên";
+                }
+                if (string.IsNullOrEmpty(ISCreatePassword))
+                {
+                    RePass = true;
+                    ReErPass = "Nhập  mã nhân viên";
+                }
+
             }
             else
             {
-                StatusText = "Mật khẩu không trùng khớp !!!";
-                ColorText = "red";
+                if (CreatePassword == ISCreatePassword)
+                {
+                    MD5 mh = MD5.Create();
+                    //Chuyển kiểu chuổi thành kiểu byte
+                    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes($"{CreatePassword}");
+                    //mã hóa chuỗi đã chuyển
+                    byte[] hash = mh.ComputeHash(inputBytes);
+                    //tạo đối tượng StringBuilder (làm việc với kiểu dữ liệu lớn)
+                    StringBuilder MD5Pass = new StringBuilder();
+
+                    for (int i = 0; i < hash.Length; i++)
+                    {
+                        MD5Pass.Append(hash[i].ToString("X2"));
+                    }
+                    User objc = new User();
+                    objc.UserName = CreateUserName;
+                    objc.UserPass = MD5Pass.ToString();
+                    objc.UserId = CreateManv;
+                    try
+                    {
+                        //Gửi dữ liệu đi tạo tải khoản mới
+                        var Rerult = CRU_User.CreateUser(objc);
+                        if (Rerult == true)
+                        {
+                            //StatusText = Rerult;
+                            //ColorText = "blue";
+                            await Application.Current.MainPage.DisplayAlert("Thông báo", "Đăng ký thành công!!!", "ok");
+                            //Đăng ký thành công, chuyển về trang Login, và remote trang tạo tài khoản
+                            await _navigationService.GoBackAsync();
+                            //gửi tên tài khoản mới tạo đến trang Login
+                            MessagingCenter.Send<AddPassWordViewModel, string>(this, "CreateUser", CreateUserName);
+                        }
+                        else
+                        {
+                            StatusText = "Lỗi server!";
+                            ColorText = "red";
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        //FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
+                    }
+                }
+                else
+                {
+                    RePass = true;
+                    Pass = true;
+                    ErPass = "Chưa chính xác";
+                    ReErPass = "Chưa chính xác";
+                    StatusText = "Mật khẩu không trùng khớp !!!";
+                    ColorText = "red";
+                }
+                IsBusy = false;
             }
-            IsBusy = false;
         }
     }
 }

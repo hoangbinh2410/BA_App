@@ -18,10 +18,9 @@ namespace BA_App
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            await NavigationService.NavigateAsync("NavigationPage/Login");
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDY1MDY5QDMxMzkyZTMyMmUzMGRhbHY5MHVhQVhUeEZBR2E5dTVWSDdtVFpXaG1jT0xiTzNLQ2VUQTBBMEk9");
+            await NavigationService.NavigateAsync("NavigationPage/ListViewUser");
         }
-
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterSingleton<IAppInfo, AppInfoImplementation>();

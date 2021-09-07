@@ -11,10 +11,10 @@ namespace BA_App.DataAPI
 {
     public class CRU_User
     {
-        public static string CreateUser(User user)
+        public static bool CreateUser(User user)
         {
-            string result = "Server đang lỗi !!!";
-            ResponseModel<bool> resultAPI = new ResponseModel<bool>();
+            bool result = false;
+            ResponseModel<User> resultAPI = new ResponseModel<User>();
             try
             {
                 string urlapi = "http://192.168.108.2:8080/api/Login";
@@ -24,11 +24,11 @@ namespace BA_App.DataAPI
                     var modelString = JsonConvert.SerializeObject(user);
                     var content = new StringContent(modelString, Encoding.UTF8, "application/json");
                     var jsonResult = wc.PostAsync(urlapi, content).Result.Content.ReadAsStringAsync().Result;
-                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<bool>>(jsonResult);
+                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<User>>(jsonResult);
                 }
                 if (resultAPI != null)
                 {
-                    result = resultAPI.Message;
+                    result = resultAPI.success;
                 }
             }
             catch (Exception ex)

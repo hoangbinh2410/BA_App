@@ -1,5 +1,7 @@
 ﻿using Xamarin.Forms;
 using System.Collections.ObjectModel;
+using BA_App.DataAPI;
+using BA_App.Model;
 
 namespace BA_App.Views
 {
@@ -8,16 +10,16 @@ namespace BA_App.Views
         public AddUser()
         {
             InitializeComponent();
-            //var departments = InfomationDepartment.GetInfoDepartment();
-            //if (departments.Count > 0)
-            //{
-            //    var employeeCollection = new ObservableCollection<Departments>();
-            //    foreach (var obj in departments)
-            //    {
-            //        employeeCollection.Add(obj);
-            //    }
-            //    comboBoxDepartment.DataSource = employeeCollection;
-            //}
+            var departments = RDepartment.GetListDepartment();
+            if (departments.Count > 0)
+            {
+                var employeeCollection = new ObservableCollection<Departments>();
+                foreach (var obj in departments)
+                {
+                    employeeCollection.Add(obj);
+                }
+                comboBoxDepartment.DataSource = employeeCollection;
+            }
         }
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {

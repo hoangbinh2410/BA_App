@@ -4,8 +4,7 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:users="clr-namespace:BA_App.Views"
-             x:Class="BA_App.Views.TabbedMainPage"
-             BackgroundColor="Aqua"
+             x:Class="BA_App.Views.TabbedMainPage"            
             xmlns:local="clr-namespace:BA_App"
             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
             android:TabbedPage.ToolbarPlacement="Bottom">

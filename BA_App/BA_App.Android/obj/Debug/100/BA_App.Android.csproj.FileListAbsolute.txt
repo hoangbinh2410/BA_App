@@ -648,3 +648,17 @@ D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe54
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe544294a8b\SfTouchEffectMaterialDesignRenderer.java
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\src\crc64dcfb2fe544294a8b\TouchEffectRenderer.java
 D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\android\assets\Newtonsoft.Json.dll
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\phong.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\name.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\id.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\home.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\add.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\baseline_manage_accounts_black_24dp.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\date.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\logout.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\sex.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\logo2.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\logo1.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\down.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\down1.png
+D:\BA_Demo\BA_App\BA_App\BA_App.Android\obj\Debug\100\res\drawable\pass.png

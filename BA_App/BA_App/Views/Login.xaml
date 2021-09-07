@@ -5,13 +5,14 @@
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:BA_App"
+             HeightRequest ="50"
              x:Class="BA_App.Views.Login">
     <StackLayout Padding="0">
         <Grid>
             <StackLayout Padding="0" Margin="0">
-                <Frame BackgroundColor="Aqua" HeightRequest="130" HorizontalOptions="FillAndExpand">
+                <Frame BackgroundColor="Aqua" HeightRequest="150" HorizontalOptions="FillAndExpand">
                     <FlexLayout JustifyContent="Center" Direction="Column" AlignItems="Center">
-                        <Image Source=""/>
+                        <Image Source="logo2" HeightRequest="80"/>
                         <Label HorizontalOptions="Center" Text="Phần mềm quản lý nhân viên"/>
                     </FlexLayout>
                 </Frame>
@@ -20,7 +21,7 @@
                 <Frame BackgroundColor="White" HasShadow="True"  HeightRequest="700" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="SIGN IN" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                            <Label Text="ĐĂNG NHẬP" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
                         </StackLayout>
                         <StackLayout Margin="0,25,0,0">
                             <FlexLayout>
@@ -29,6 +30,8 @@
                                                     Hint="Tài khoản"
                                                     LeadingViewPosition="Inside" 
                                                     ContainerType="Outlined"
+                                                    ErrorText="{Binding ErName}"
+                                                    HasError="{Binding Name}"
                                                     FocusedColor="#00AFA0">
                                     <Entry Text="{Binding UserName}"
                                FontSize="20"/>
@@ -41,6 +44,8 @@
                                 <inputLayout:SfTextInputLayout  Margin="50,0,50,0"
                                                     Hint="Mật khẩu"
                                                     LeadingViewPosition="Inside" 
+                                                    ErrorText="{Binding ErPass}"
+                                                    HasError="{Binding Pass}"
                                                     EnablePasswordVisibilityToggle="True"
                                                     ContainerType="Outlined"
                                                     FocusedColor="#00AFA0">
@@ -67,7 +72,7 @@
                             </TableView>
                         </StackLayout>
                         <StackLayout>
-                            <Button Text="SIGN IN" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50" Command="{Binding LoginCommand}"></Button>
+                            <Button Text="ĐĂNG NHẬP" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50" Command="{Binding LoginCommand}"></Button>
                             <Label TextColor="Blue" 
                        FontSize="20"
                        Text="Quên mật khẩu ?"

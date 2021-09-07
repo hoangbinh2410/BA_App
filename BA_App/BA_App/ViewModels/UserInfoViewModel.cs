@@ -15,7 +15,8 @@ namespace BA_App.ViewModels
         private string _myname = string.Empty;
         private string _myid = string.Empty;
        // public Nhanvien nhanvien;
-        private List<Nhanvien> WorkList = CRUD_Nhanvien.GetListWorker();
+        private List<Employees> WorkList = CRUD_Nhanvien.GetListWorker();
+        public Command Signout { get; }
         public Command ChangePassWord { get; }
         public string Myname { 
             get { return _myname; }
@@ -30,7 +31,8 @@ namespace BA_App.ViewModels
         public UserInfoViewModel(INavigationService navigationService)
         {
             _navigationService = navigationService;
-            ChangePassWord = new Command(ChangePassWordClicked);
+            Signout = new Command(SignoutClicked);
+            ChangePassWord = new Command(ChangePassWordClicked);                     
             InfoUser();
 
         }
@@ -38,16 +40,26 @@ namespace BA_App.ViewModels
         {
             var properties = Application.Current.Properties;
             var query = from list in WorkList
-                        where list.Manv.Trim() == (string)properties["UsersID"]
+                        where list.EmployeeId.Trim() == (string)properties["UsersID"]
                         select list;
             var userinfo = query.FirstOrDefault();
-            Myname = userinfo.Ten;
-            Myid = userinfo.Manv;
+            Myname = userinfo.EmployeeName;
+            Myid = userinfo.EmployeeId;
         }
         private async void ChangePassWordClicked(object obj)
         {
             //Chuyển đến trang tạo tài khoản khi cLick
             await _navigationService.NavigateAsync("UpdatePassWord");
+        }
+        private async void SignoutClicked(object obj)
+        {
+            //Chuyển đến trang tạo tài khoản khi cLick
+            await _navigationService.NavigateAsync("Login");
+            var pageIndex = Application.Current.MainPage.Navigation.NavigationStack.Count;
+            if (pageIndex == 2)
+            {
+                Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - pageIndex]);
+            }
         }
     }
 }

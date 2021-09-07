@@ -11,26 +11,27 @@
     <StackLayout>
         <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
             <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Direction="Row">
-                <ImageButton 
-                             Source="{local:Resource BA_App.img.delete.png}"                            
+                <ImageButton BackgroundColor="Transparent"
+                             Source="add"                            
                              Command="{Binding AddWorkerCommand}"/>
                 <Label  Text="Danh sách Nhân Viên" HorizontalTextAlignment="Center" TextColor="Black" FontSize="26" ></Label>
-                <ImageButton x:Name="userWorker"                        
-                             Source="{local:Resource BA_App.img.delete.png}"
+                <ImageButton x:Name="userWorker"
+                             BackgroundColor="Transparent"
+                             Source="home"                             
                              Clicked="Clicked_ManageNV"/>
             </FlexLayout>
         </Frame>
         <FlexLayout JustifyContent="Center" Direction="Row" AlignItems="Center">
-            <Button Text="Tìm kiếm theo"
-                        TextColor="White"
-                        Clicked="Button_Clicked"
-                        HorizontalOptions="Center" VerticalOptions="Center"
+            <Label Text="Tìm kiếm:" FontSize="20"/>
+            <Button ImageSource="down1"                       
+                        Clicked="Button_Clicked"                       
                         Padding="10"
                         FontSize="20"
-                        BackgroundColor="#009EDA"
+                        BackgroundColor= "Transparent"
                         x:Name="btnFilterByDepartment"/>
+           
             <syncfusion1:SfPicker x:Name="FilterByDepartment"                                     
-                                      ShowFooter="True" 
+                                      ShowFooter="True"
                                       PickerMode="Dialog"
                                       ItemsSource="{Binding Department}"
                                       HeaderText="Lựa chọn theo"
@@ -74,7 +75,7 @@
                                            BackgroundColor="Transparent"                                       
                                            HeightRequest="35"
                                            WidthRequest="35"
-                                           Source="{local:Resource BA_App.img.avatar.png}" >
+                                           Source="{local:Resource BA_App.img.delete.png}" >
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer   
                                                 Command="{Binding Source={x:Reference SwipeListView},
@@ -94,7 +95,7 @@
                                            HeightRequest="35"
                                            WidthRequest="35"
                                            BackgroundColor="Transparent"
-                                           Source="{local:Resource BA_App.img.avatar.png}" >
+                                           Source="{local:Resource BA_App.img.reset.png}" >
                                     <Image.GestureRecognizers>
                                         <TapGestureRecognizer  
                                                 Command="{Binding Source={x:Reference SwipeListView},
@@ -158,44 +159,45 @@
             </syncfusion:SfListView.GroupHeaderTemplate>
             <syncfusion:SfListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10">
+                    <Grid Padding="5">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.2*" />
-                            <ColumnDefinition Width="0.8*" />
-                            <ColumnDefinition Width="0.2*" />
                             <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.6*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.4*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="0.5*" />
                             <RowDefinition Height="0.5*" />
                         </Grid.RowDefinitions>
-                        <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="60" WidthRequest="60"
+                        <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="50" WidthRequest="50"
                                                    ImageSource="{local:Resource BA_App.img.avatar.png}"
                                                    Grid.Column="0"
                                                    Grid.RowSpan="2"
-                                                   Margin="-20,0,0,7.5"
+                                                   Margin="0,0,0,10"
                                                    />
-                        <Label Text="{Binding Ten}" 
+                        <Label Text="{Binding EmployeeName}" 
                                    FontAttributes="Bold"  
                                    TextColor="Black"
                                    FontSize="18"
                                    Grid.Row="0"
                                    Grid.Column="1"/>
                         <Label TextColor="Black"
-                                   Text="{Binding Manv}"
+                                   Text="{Binding EmployeeId}"
                                    FontSize="15"
                                    Grid.Row="1" 
                                    Grid.Column="1"/>
 
                         <Label TextColor="Black"
-                                   Text="{Binding Diachi}"   
+                                   Text="{Binding EmployeeAdress}"   
                                    FontSize="15" 
                                    Grid.Row="0"
                                    Grid.Column="2"
-                                   Margin="0,7.5,0,0"
+                               HorizontalOptions="Start"
+                                   Margin="0.5,6.5,10,0"
                                    />
                         <Label TextColor="Black"
-                                   Text="{Binding Gioitinh}" 
+                                   Text="{Binding EmployeeSex}" 
                                    FontSize="15"
                                    Grid.Row="1" 
                                    Grid.Column="2"/>
@@ -204,7 +206,7 @@
                                    Grid.Column="3"
                                    Text="{Binding DateFix}"                                 
                                    FontSize="15"
-                                   Margin="0,17.5,0,0"/>
+                                   Margin="0,16.5,5,0"/>
                     </Grid>
                 </DataTemplate>
             </syncfusion:SfListView.ItemTemplate>

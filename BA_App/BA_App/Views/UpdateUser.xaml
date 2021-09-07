@@ -24,54 +24,75 @@
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Tên"
                                                 LeadingViewPosition="Inside" 
+                                                ErrorText="{Binding ErName}"
+                                                HasError="{Binding IName}"
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
                     <Entry Text="{Binding Name}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="name"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Sửa Dia chi-->
             <FlexLayout Margin="15,20,15,5" HeightRequest="50">
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
-                                                Hint="Tên"
+                                                Hint="Địa chỉ"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
+                                                ErrorText="{Binding ErAdress}"
+                                                HasError="{Binding IAdress}"
                                                 FocusedColor="#00AFA0">
                     <Entry Text="{Binding Adress}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="home"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Sửa Ma nhan vien-->
             <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
-                                                Hint="Tên"
+                                                Hint="Mã nhân viên"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
+                                                ErrorText="{Binding ErManv}"
+                                                HasError="{Binding IManv}"
                                                 FocusedColor="#00AFA0">
                     <Entry Text="{Binding Manv}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="id"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
             <!--Sửa phong-->
             <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
-                                                Hint="Tên"
+                                                Hint="Phòng"
                                                 LeadingViewPosition="Inside" 
+                                                ErrorText="{Binding ErDepartment}"
+                                                HasError="{Binding IDepartment}"
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Department}"
-                           FontSize="20"/>
+                    <combobox:SfComboBox HeightRequest="55" 
+                                         x:Name="comboBoxDepartment" 
+                                         MaximumDropDownHeight="200" 
+                                         IsEditableMode="False"
+                                         SelectedItem="{Binding Department}"
+                                         Grid.Column="1"
+                                         Grid.Row="1"
+                                         TextSize="20"
+                                         DisplayMemberPath="DepartmentName">
+                        <combobox:SfComboBox.ComboBoxSource>
+                            <ListCollection:List x:TypeArguments="x:String">
+
+                            </ListCollection:List>
+                        </combobox:SfComboBox.ComboBoxSource>
+                    </combobox:SfComboBox>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="phong"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -80,6 +101,8 @@
                 <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Giới tính"
                                                 LeadingViewPosition="Inside" 
+                                                ErrorText="{Binding ErGender}"
+                                                HasError="{Binding IGender}"
                                                 ContainerType="Outlined"
                                                 FocusedColor="#00AFA0">
                     <combobox:SfComboBox HeightRequest="55" 
@@ -98,7 +121,7 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="sex"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -114,7 +137,7 @@
                             TextColor="Blue"
                             FontSize="25"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
+                        <Image Source="date"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>

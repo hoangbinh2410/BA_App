@@ -14,7 +14,7 @@ namespace BA_App.DataAPI
    public static class CRUD_Nhanvien
     {
         // danh sach nhan vien
-        public static List<Nhanvien> GetListWorker()
+        public static List<Employees> GetListWorker()
         {
             //List<Nhanvien> result = new List<Nhanvien>();
             //ResponseModel<List<Nhanvien>> resultAPI = new ResponseModel<List<Nhanvien>>();
@@ -29,7 +29,7 @@ namespace BA_App.DataAPI
             //client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             try
             {
-                List<Nhanvien> result = new List<Nhanvien>();
+                List<Employees> result = new List<Employees>();
                 //ResponseModel<List<Nhanvien>> resultAPI = new ResponseModel<List<Nhanvien>>();
                 var uri = "http://192.168.108.2:8080/api/Home";
                 HttpClient client = new HttpClient();
@@ -47,7 +47,7 @@ namespace BA_App.DataAPI
                     Stream dataStreamResponse = dataObjects.Result;
                     StreamReader tReader = new StreamReader(dataStreamResponse);
                     string sResponseFromServer = tReader.ReadToEnd();
-                    result = JsonConvert.DeserializeObject<List<Nhanvien>>(sResponseFromServer);
+                    result = JsonConvert.DeserializeObject<List<Employees>>(sResponseFromServer);
                     
                 }
                 return result;
@@ -55,20 +55,20 @@ namespace BA_App.DataAPI
             }
             catch (Exception ex)
             {
-                return new List<Nhanvien>();
+                return new List<Employees>();
             }
            
 
         }
         // Them nv
-        public static bool AddNewWorker(Nhanvien nhanvien)
+        public static bool AddNewWorker(Employees nhanvien)
         {
             bool result = false;
-            ResponseModel<bool> resultAPI = new ResponseModel<bool>();
+            ResponseModel<Employees> resultAPI = new ResponseModel<Employees>();
             try
             {
                
-                string url = "http://192.168.108.2:8080/api/Home";
+                string url = "http://192.168.108.2:8080/api/Home/CreatNV";
                 HttpClient client = new HttpClient();
                 string jsonData = JsonConvert.SerializeObject(nhanvien);
                 using (var wc = new HttpClient())
@@ -76,11 +76,11 @@ namespace BA_App.DataAPI
                     var modelString = JsonConvert.SerializeObject(nhanvien);
                     var content = new StringContent(modelString, Encoding.UTF8, "application/json");
                     var jsonResult = wc.PostAsync(url, content).Result.Content.ReadAsStringAsync().Result;
-                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<bool>>(jsonResult);
+                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<Employees>>(jsonResult);
                 }
-                if (resultAPI.success)
+                if (resultAPI !=null)
                 {
-                    result = resultAPI.data;
+                    result = resultAPI.success;
                 }
             }
             catch (Exception ex)
@@ -90,10 +90,10 @@ namespace BA_App.DataAPI
             return result;
         }
         //update nv
-        public static bool UpdateWorker(Nhanvien nhanvien)
+        public static bool UpdateWorker(Employees nhanvien)
         {
             //bool result = false;
-            ResponseModel<Nhanvien> resultAPI = new ResponseModel<Nhanvien>();
+            ResponseModel<Employees> resultAPI = new ResponseModel<Employees>();
             try
             {
                 string url = "http://192.168.108.2:8080/api/Home/UpdateNv";
@@ -103,7 +103,7 @@ namespace BA_App.DataAPI
                     var modelString = JsonConvert.SerializeObject(nhanvien);
                     var content = new StringContent(modelString, Encoding.UTF8, "application/json");
                     var jsonResult = wc.PostAsync(url, content).Result.Content.ReadAsStringAsync().Result;
-                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<Nhanvien>>(jsonResult);
+                    resultAPI = JsonConvert.DeserializeObject<ResponseModel<Employees>>(jsonResult);
                 }
                 if (resultAPI != null)
                 {

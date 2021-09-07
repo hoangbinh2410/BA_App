@@ -9,9 +9,11 @@
     <None Remove="img\avatar.png" />
     <None Remove="img\date.png" />
     <None Remove="img\delete.png" />
+    <None Remove="img\home.png" />
     <None Remove="img\info.png" />
     <None Remove="img\list.png" />
     <None Remove="img\lock.png" />
+    <None Remove="img\logout.png" />
     <None Remove="img\reset.png" />
     <None Remove="img\setting.png" />
     <None Remove="img\sex.png" />
@@ -20,6 +22,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="img\avatar.png" />
+    <EmbeddedResource Include="img\home.png" />
+    <EmbeddedResource Include="img\logout.png" />
     <EmbeddedResource Include="img\reset.png" />
     <EmbeddedResource Include="img\date.png" />
     <EmbeddedResource Include="img\delete.png" />
