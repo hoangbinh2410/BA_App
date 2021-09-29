@@ -38,7 +38,7 @@ namespace BA_App.ViewModels
                             Adress = a.EmployeeAdress,
                             Department = b.DepartmentName,
                             Sex = a.EmployeeSex,
-                            IDName = a.EmployeeId
+                            IDName = a.EmployeeId,                            
                         };
 
             query.ToList().ForEach(a => {
@@ -136,7 +136,7 @@ namespace BA_App.ViewModels
         }
         /// <summary>Updates the worker clicked.
         /// menthod sử lý sự kiện khi vuốt kéo sang update nhân viên
-        /// </summary>
+        /// </summary>             
         /// <param name="objWorker">The object worker.</param>
         private async void UpdateWorkerClicked(DataEmployee objWorker)
         {

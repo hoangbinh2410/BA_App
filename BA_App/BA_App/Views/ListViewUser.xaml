@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:local="clr-namespace:BA_App"
+             xmlns:controls="clr-namespace:BA_App.Model"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms" 
-              xmlns:syncfusion1="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"
+              xmlns:syncfusion1="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms"         
              xmlns:sfavatar="clr-namespace:Syncfusion.XForms.AvatarView;assembly=Syncfusion.Core.XForms"
              x:Class="BA_App.Views.ListViewUser">
-    <StackLayout>
-        <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
+    <StackLayout BackgroundColor="White">
+        <Frame HeightRequest="30" BackgroundColor="#4dd2ff" HorizontalOptions="FillAndExpand">
             <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center" Direction="Row">
                 <ImageButton BackgroundColor="Transparent"
                              Source="add"                            
@@ -22,14 +24,13 @@
             </FlexLayout>
         </Frame>
         <FlexLayout JustifyContent="Center" Direction="Row" AlignItems="Center">
-            <Label Text="Tìm kiếm:" FontSize="20"/>
+            <Label Text="Tìm kiếm:" FontSize="20" FontAttributes="Bold" TextColor="Black"/>
             <Button ImageSource="down1"                       
                         Clicked="Button_Clicked"                       
                         Padding="10"
                         FontSize="20"
                         BackgroundColor= "Transparent"
                         x:Name="btnFilterByDepartment"/>
-           
             <syncfusion1:SfPicker x:Name="FilterByDepartment"                                     
                                       ShowFooter="True"
                                       PickerMode="Dialog"
@@ -41,175 +42,214 @@
                                       CancelButtonClicked="picker_CancelButtonClicked"/>
         </FlexLayout>
         <!--Thanh tìm kiếm-->
+        <yummy:PancakeView  BackgroundColor="White" HasShadow="True"  CornerRadius="20,20,18,18" Margin="20,0,20,0" HeightRequest="60" HorizontalOptions="FillAndExpand">
+            <yummy:PancakeView.Shadow>
+                <yummy:DropShadow Color="Gray"/>
+            </yummy:PancakeView.Shadow>
             <SearchBar Placeholder="Tìm theo tên..." 
                        x:Name="filterWorker"
                        Margin="-10,0,20,0"
                        FontAttributes="Italic"
                        TextChanged="FilterWorker_TextChanged"/>
+        </yummy:PancakeView>
         <!--Danh sách nhân viên-->
-        <syncfusion:SfListView    Background="White"                                
+        <!--<yummy:PancakeView  BackgroundColor="White" HasShadow="True"  Margin="5,0,5,0" HorizontalOptions="FillAndExpand">
+            <yummy:PancakeView.Shadow>
+                <yummy:DropShadow Color="Gray"/>
+            </yummy:PancakeView.Shadow>-->
+            <syncfusion:SfListView    Background="#e6f9ff"                                
                                    x:Name="SwipeListView"
                                   SwipeOffset="200"
-                                  ItemSize="100"
-                                  
+                                  ItemSize="120"
+                                  Margin="5,5,5,5"                                    
                                   ItemsSource="{Binding WorkList}"
                                    AllowSwiping="True">
-            <!--Sự kiện vuốt trái-->
-            <syncfusion:SfListView.LeftSwipeTemplate >
-                <DataTemplate>
-                    <Grid BackgroundColor="#81F7F3">
+                <!--Sự kiện vuốt trái-->
+                <syncfusion:SfListView.LeftSwipeTemplate >
+                    <DataTemplate>
+                    <Grid BackgroundColor="Pink">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            
+                            <ColumnDefinition Width=".5*" />
+                            <ColumnDefinition Width=".5*" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <Grid HorizontalOptions="Fill" 
-                                  VerticalOptions="Fill" 
-                                  Grid.Column="0">
-                            <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                                <Image Grid.Column="0"
-                                           Grid.Row="0"
+                        <Grid VerticalOptions="FillAndExpand" Grid.Column="0"
+                                           Grid.Row="0" BackgroundColor="Blue">
+                            <Image 
                                            BackgroundColor="Transparent"                                       
                                            HeightRequest="35"
                                            WidthRequest="35"
                                            Source="{local:Resource BA_App.img.delete.png}" >
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer   
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer   
                                                 Command="{Binding Source={x:Reference SwipeListView},
                                                 Path=BindingContext.DeleteWorkerCommand}"
                                                 CommandParameter="{Binding .}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </Grid>
-                        </Grid>                                      
-                        <Grid HorizontalOptions="Fill" 
-                                  VerticalOptions="Fill" 
-                                  Grid.Column="1"
-                                  Margin="0,0,0,0">
-                            <Grid VerticalOptions="Center" HorizontalOptions="Center">
-                                <Image Grid.Column="0"
-                                           Grid.Row="0"
+                                </Image.GestureRecognizers>
+                            </Image>
+                        </Grid>
+                        <Grid   Grid.Column="1"
+                                Grid.Row="0" BackgroundColor="red">
+                            <Image 
                                            HeightRequest="35"
                                            WidthRequest="35"
                                            BackgroundColor="Transparent"
                                            Source="{local:Resource BA_App.img.reset.png}" >
-                                    <Image.GestureRecognizers>
-                                        <TapGestureRecognizer  
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer  
                                                 Command="{Binding Source={x:Reference SwipeListView},
                                                 Path=BindingContext.UpdateWorkerCommand}"
                                                 CommandParameter="{Binding .}"/>
-                                    </Image.GestureRecognizers>
-                                </Image>
-                            </Grid>
+                                </Image.GestureRecognizers>
+                            </Image>
                         </Grid>
                     </Grid>
-                    <!--<FlexLayout >
-                        <FlexLayout>
-                            <Image Source="{local:Resource BA_App.img.delete.png}" ></Image>
-                            <Label Text="Sửa"></Label>
-                        </FlexLayout>
-                        <FlexLayout>
-                            <Image Source="{local:Resource BA_App.img.delete.png}" ></Image>
-                            <Label Text="Xóa"></Label>
-                        </FlexLayout>
-                    </FlexLayout>-->
-                    <!--<Image                                      
-                                           Source="{local:Resource BA_App.img.delete.png}" >
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer   
-                                                Command="{Binding Source={x:Reference SwipeListView},
-                                                Path=BindingContext.DeleteWorkerCommand}"
-                                                CommandParameter="{Binding .}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="Xoa"></Label>
-                       
-                            <Image                                     
-                                           Source="{local:Resource BA_App.img.add.png}" >
-                                <Image.GestureRecognizers>
-                                    <TapGestureRecognizer   
-                                                Command="{Binding Source={x:Reference SwipeListView},
-                                                Path=BindingContext.DeleteWorkerCommand}"
-                                                CommandParameter="{Binding .}"/>
-                                </Image.GestureRecognizers>
-                            </Image>
-                            <Label Text="Sua"></Label>-->
-                        
                 </DataTemplate>
-            </syncfusion:SfListView.LeftSwipeTemplate>
-            <!--View tiêu đề chữ cái-->
-            <syncfusion:SfListView.GroupHeaderTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <ViewCell.View>
-                            <StackLayout BackgroundColor="#E4E4E4">
-                                <Label Text="{Binding Key}" 
+                </syncfusion:SfListView.LeftSwipeTemplate>
+                <!--View tiêu đề chữ cái-->
+                <!--<syncfusion:SfListView.GroupHeaderTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout BackgroundColor="#99e6ff">
+                                    <Label Text="{Binding Key}" 
                          FontSize="22" 
                          FontAttributes="Bold"
                          VerticalOptions="Center" 
-                         HorizontalOptions="Start" 
+                         HorizontalOptions="Start"
+                         TextColor="Black"
                          Margin="20,0,0,0" />
-                            </StackLayout>
-                        </ViewCell.View>
-                    </ViewCell>
-                </DataTemplate>
-            </syncfusion:SfListView.GroupHeaderTemplate>
-            <syncfusion:SfListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0.3*" />
-                            <ColumnDefinition Width="0.6*" />
-                            <ColumnDefinition Width="0.3*" />
-                            <ColumnDefinition Width="0.4*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.5*" />
-                            <RowDefinition Height="0.5*" />
-                        </Grid.RowDefinitions>
-                        <sfavatar:SfAvatarView ContentType="Custom" CornerRadius="50" HeightRequest="50" WidthRequest="50"
-                                                   ImageSource="{local:Resource BA_App.img.avatar.png}"
-                                                   Grid.Column="0"
-                                                   Grid.RowSpan="2"
-                                                   Margin="0,0,0,10"
-                                                   />
-                        <Label Text="{Binding EmployeeName}" 
-                                   FontAttributes="Bold"  
-                                   TextColor="Black"
-                                   FontSize="18"
-                                   Grid.Row="0"
-                                   Grid.Column="1"/>
-                        <Label TextColor="Black"
-                                   Text="{Binding EmployeeId}"
-                                   FontSize="15"
-                                   Grid.Row="1" 
-                                   Grid.Column="1"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.GroupHeaderTemplate>-->
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="2" Margin="0,0,0,0" BackgroundColor="#e6f9ff">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.97*" />
+                                <RowDefinition Height="0.03*" />
+                            </Grid.RowDefinitions>
+                            <yummy:PancakeView  BackgroundColor="White" HasShadow="True" Margin="5,0,5,0" HeightRequest="60" HorizontalOptions="FillAndExpand"  Grid.Column="0"
+                           Grid.Row="0">
+                                <yummy:PancakeView.Shadow>
+                                    <yummy:DropShadow Color="Gray"/>
+                                </yummy:PancakeView.Shadow>
+                                <Grid BackgroundColor="Transparent"
+                          >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.2*" />
+                                        <ColumnDefinition Width="0.4*" />
+                                        <ColumnDefinition Width="0.4*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
 
-                        <Label TextColor="Black"
-                                   Text="{Binding EmployeeAdress}"   
-                                   FontSize="15" 
-                                   Grid.Row="0"
-                                   Grid.Column="2"
-                               HorizontalOptions="Start"
-                                   Margin="0.5,6.5,10,0"
+                                <Grid BackgroundColor="Transparent" Grid.Column="0"
+                                   Grid.Row="0" VerticalOptions="Center">
+                                    <Frame HeightRequest="60" VerticalOptions="Center"
+                                   WidthRequest="60" Margin="10,0,10,0"                                  
+                                   CornerRadius="30" Padding="0">
+                                      <Image Source="{Binding EmployeeImage}" Aspect="AspectFill"  Margin="0" />
+                                    </Frame>
+                                    </Grid>
+                                    <Grid  Grid.Column="1"
+                               Grid.Row="0" Margin="0,10,0,0" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <StackLayout Orientation="Horizontal" Grid.Row="0"
+                                   Grid.Column="0">
+                                        <Label Text="{Binding EmployeeName}" 
+                                               FontAttributes="Bold"
+                                               Margin="0,5,0,0"
+                                               TextColor="Black"
+                                               FontSize="18"/>
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="1"
+                                                 Margin="0,3,0,0"
+                                                 Orientation="Horizontal" 
+                                        Grid.Column="0">
+                                        <controls:IconView Source="id1" Foreground="#1ac9ff">
+
+                                        </controls:IconView>
+                                        <Label TextColor="Black"
+                                         Text="{Binding EmployeeId}"
+                                               Margin="0,5,0,0"
+                                         FontSize="15"/> 
+                                    </StackLayout>
+                                    <StackLayout Grid.Row="2" 
+                                                 Margin="0,0,0,3"
+                                                 Grid.Column="0"
+                                                 Orientation="Horizontal">
+                                        <controls:IconView Source="sex1" Foreground="#1ac9ff">
+
+                                        </controls:IconView>
+                                        <Label TextColor="Black"
+                                               Text="{Binding EmployeeSex}" 
+                                               Margin="0,5,0,0"
+                                               FontSize="15"
                                    />
-                        <Label TextColor="Black"
-                                   Text="{Binding EmployeeSex}" 
-                                   FontSize="15"
-                                   Grid.Row="1" 
-                                   Grid.Column="2"/>
-                        <Label TextColor="Black"
-                                   Grid.RowSpan="2" 
-                                   Grid.Column="3"
-                                   Text="{Binding DateFix}"                                 
-                                   FontSize="15"
-                                   Margin="0,16.5,5,0"/>
-                    </Grid>
-                </DataTemplate>
-            </syncfusion:SfListView.ItemTemplate>
-        </syncfusion:SfListView>
+                                    </StackLayout>
+                                </Grid>
+                                    <Grid Grid.Column="2"
+                                          Grid.Row="0" Margin="0,0,10,0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="*" />
+                                        </Grid.RowDefinitions>
+                                    <StackLayout Grid.Row="1"  
+                                                 Margin="0,10,0,0"
+                                                 Orientation="Horizontal"
+                                                 Grid.Column="0">
+                                        <controls:IconView Source="home1" Margin="0,3,0,0" Foreground="#1ac9ff">
+
+                                        </controls:IconView>
+                                        <Label TextColor="Black"
+                                               Text="{Binding EmployeeAdress}" 
+                                               Margin="0,5,0,0"  
+                                               FontSize="15"/>
+                                    </StackLayout>
+                                    <StackLayout  Grid.Row="2" Margin="0,0,3,0"
+                                                  Orientation="Horizontal"
+                                                  Grid.Column="0">
+                                        <controls:IconView Source="birthday" Foreground="#1ac9ff">
+                                            
+                                        </controls:IconView>
+                                        <Label TextColor="Black"
+                                               Margin="0,5,0,0"                                 
+                                               Text="{Binding DateFix}"                                 
+                                               FontSize="15" />
+                                    </StackLayout>                                           
+                                    </Grid>
+                                </Grid>
+                            </yummy:PancakeView>
+                            <StackLayout 
+                                    Grid.Row="1" 
+                                    Grid.Column="0" 
+                                    BackgroundColor="Transparent">
+                                <!--<BoxView  BackgroundColor="Gray" VerticalOptions="Center" HeightRequest="1" Margin="20,5,20,0"/>-->
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        <!--</yummy:PancakeView>-->
     </StackLayout>
 </ContentPage>

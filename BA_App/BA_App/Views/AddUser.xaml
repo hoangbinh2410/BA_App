@@ -4,80 +4,84 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:BA_App"
+             xmlns:controls="clr-namespace:BA_App.Model"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
              xmlns:combobox="clr-namespace:Syncfusion.XForms.ComboBox;assembly=Syncfusion.SfComboBox.XForms"
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
-             x:Class="BA_App.Views.AddUser"
-             
-             >
+             x:Class="BA_App.Views.AddUser">
     <StackLayout >
-        <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
+        <Frame HeightRequest="30" BackgroundColor="#4dd2ff" HorizontalOptions="FillAndExpand">
             <FlexLayout AlignItems="Center" Direction="Row" JustifyContent="SpaceBetween">
                 <Image Source=''/>
-                <Label  Text="Thêm Nhân Viên" HorizontalTextAlignment="Center" TextColor="Black" FontSize="28" />
+                <Label  Text="Thêm Nhân Viên" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="Black" FontSize="28" />
                 <Label></Label>
             </FlexLayout>
         </Frame>
-        <FlexLayout Direction="Column" AlignItems="Center"  JustifyContent="Start"   >
-            <!--Add Tên-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
-                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+        <yummy:PancakeView  BackgroundColor="White" HasShadow="True"  CornerRadius="20,20,20,20" Margin="20,60,20,0" HeightRequest="640" HorizontalOptions="FillAndExpand">
+            <yummy:PancakeView.Shadow>
+                <yummy:DropShadow Color="Gray"/>
+            </yummy:PancakeView.Shadow>
+            <FlexLayout Direction="Column" AlignItems="Center"  JustifyContent="Start"   >
+                <!--Add Tên-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50">
+                    <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Tên"
                                                 ErrorText="{Binding ErName}"
                                                 HasError="{Binding IName}"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="blue">
-                    <Entry Text="{Binding Name}"
+                                                FocusedColor="#00a3cc">
+                        <Entry Text="{Binding Name}"
                            FontSize="20"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="name"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <!--Add Địa chỉ nhan vien-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
-                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView  Source="name" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <!--Add Địa chỉ nhan vien-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50">
+                    <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Địa chỉ"
                                                 ErrorText="{Binding ErAdress}"
                                                 HasError="{Binding IAdress}"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Adress}"
+                                                FocusedColor="#00a3cc">
+                        <Entry Text="{Binding Adress}"
                            FontSize="20"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="home"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <!--Add Ma nhan vien-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
-                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView Source="home" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <!--Add Ma nhan vien-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50" >
+                    <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Mã nhân viên"
                                                 ErrorText="{Binding ErManv}"
                                                 HasError="{Binding IManv}"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
-                    <Entry Text="{Binding Manv}"
+                                                FocusedColor="#00a3cc">
+                        <Entry Text="{Binding Manv}"
                            FontSize="20"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="id"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <!--Add phong-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
-                <inputLayout:SfTextInputLayout FlexLayout.Grow="1"
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView Source="id" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <!--Add phong-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50">
+                    <inputLayout:SfTextInputLayout FlexLayout.Grow="1"
                                                 Hint="Phòng"
                                                 LeadingViewPosition="Inside"
                                                 ErrorText="{Binding ErDepartment}"
                                                 HasError="{Binding IDepartment}"
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
-                    <combobox:SfComboBox HeightRequest="55" 
+                                                FocusedColor="#00a3cc">
+                        <combobox:SfComboBox HeightRequest="55" 
                                          x:Name="comboBoxDepartment" 
                                          MaximumDropDownHeight="200" 
                                          IsEditableMode="False"
@@ -86,84 +90,85 @@
                                          Grid.Row="1"
                                          TextSize="20"
                                          DisplayMemberPath="DepartmentName">
-                        <combobox:SfComboBox.ComboBoxSource>
-                            <ListCollection:List x:TypeArguments="x:String">
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
 
-                            </ListCollection:List>
-                        </combobox:SfComboBox.ComboBoxSource>
-                    </combobox:SfComboBox>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="phong"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <!--Add Gioi tinh-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50" >
-                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView Source="phong" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <!--Add Gioi tinh-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50" >
+                    <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Giới tính"
                                                 ErrorText="{Binding ErGender}"
                                                 HasError="{Binding IGender}"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
-                    <combobox:SfComboBox HeightRequest="55" 
+                                                FocusedColor="#00a3cc">
+                        <combobox:SfComboBox HeightRequest="55" 
                                          x:Name="comboBoxGender" 
                                          MaximumDropDownHeight="200" 
                                          IsEditableMode="false"
                                          SelectedItem="{Binding Gender}"
                                          TextSize="20">
-                        <combobox:SfComboBox.ComboBoxSource>
-                            <ListCollection:List x:TypeArguments="x:String">
-                                <x:String>Nam</x:String>
-                                <x:String>Nữ</x:String>
-                            </ListCollection:List>
-                        </combobox:SfComboBox.ComboBoxSource>
-                    </combobox:SfComboBox>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="sex"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <!--Add Ngay-->
-            <FlexLayout Margin="15,20,15,5" HeightRequest="50">
-                <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
+                            <combobox:SfComboBox.ComboBoxSource>
+                                <ListCollection:List x:TypeArguments="x:String">
+                                    <x:String>Nam</x:String>
+                                    <x:String>Nữ</x:String>
+                                </ListCollection:List>
+                            </combobox:SfComboBox.ComboBoxSource>
+                        </combobox:SfComboBox>
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView Source="sex" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <!--Add Ngay-->
+                <FlexLayout Margin="15,20,15,10" HeightRequest="50">
+                    <inputLayout:SfTextInputLayout  FlexLayout.Grow="1"
                                                 Hint="Ngày sinh"
                                                 ErrorText="{Binding ErBirthDay}"
                                                 HasError="{Binding IBirthDay}"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0"
+                                                FocusedColor="#b3ecff"
                                                 HeightRequest="100">
-                    <DatePicker Date="{Binding BirthDay}"
-                            TextColor="Blue"
+                        <DatePicker Date="{Binding BirthDay}"
+                            TextColor="Black"
                             FontSize="25"/>
-                    <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="date"/>
-                    </inputLayout:SfTextInputLayout.LeadingView>
-                </inputLayout:SfTextInputLayout>
-            </FlexLayout>
-            <buttons:SfButton Command="{Binding AddWorkerCommand}"
+                        <inputLayout:SfTextInputLayout.LeadingView>
+                            <controls:IconView Source="date" Foreground="#1ac9ff"/>
+                        </inputLayout:SfTextInputLayout.LeadingView>
+                    </inputLayout:SfTextInputLayout>
+                </FlexLayout>
+                <buttons:SfButton Command="{Binding AddWorkerCommand}"
                               FontSize="30"
                               Text="Lưu"
-                              Margin="100,20,110,0"
+                              Margin="100,60,110,0"
                               CornerRadius="100"
                               WidthRequest="100"
                               HeightRequest="50"
-                              BackgroundColor="DarkBlue"
+                              BackgroundColor="#1ac6ff"
                               TextColor="White"
                               Padding="5"/>
-            <!--Xoay chờ load-->
-            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                <!--Xoay chờ load-->
+                <ActivityIndicator IsRunning="{Binding IsBusy}"
                                IsVisible="{Binding IsBusy}"
                                HeightRequest="30"
                                WidthRequest="30"
                                HorizontalOptions="Center"
                                Margin="10"/>
-            <Label Text="{Binding StatusText}" 
+                <Label Text="{Binding StatusText}" 
                    HorizontalOptions="Center"
                    FontSize="30"
                    TextColor="{Binding Color}"
                    Margin="0,0,0,0"/>
-        </FlexLayout>
+            </FlexLayout>
+        </yummy:PancakeView>
     </StackLayout>
 </ContentPage>

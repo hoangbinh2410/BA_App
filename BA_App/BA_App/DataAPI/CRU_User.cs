@@ -17,7 +17,7 @@ namespace BA_App.DataAPI
             ResponseModel<User> resultAPI = new ResponseModel<User>();
             try
             {
-                string urlapi = "http://192.168.108.2:8080/api/Login";
+                string urlapi = "http://192.168.0.106:8080/api/Login";
                 using (var wc = new HttpClient())
                 {
                     //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");
@@ -45,7 +45,7 @@ namespace BA_App.DataAPI
             ResponseModel<User> resultAPI = new ResponseModel<User>();
             try
             {
-                string url = "http://192.168.108.2:8080/api/Login/Test";
+                string url = "http://192.168.0.106:8080/api/Login/Test";
                 using (var wc = new HttpClient())
                 {
                     //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");
@@ -73,7 +73,7 @@ namespace BA_App.DataAPI
             ResponseModel<User> newpassAPI = new ResponseModel<User>();
             try
             {
-                string url = "http://192.168.108.2:8080/api/Login/ChangePass";
+                string url = "http://192.168.0.106:8080/api/Login/ChangePass";
                 using (var wc = new HttpClient())
                 {
                     //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");

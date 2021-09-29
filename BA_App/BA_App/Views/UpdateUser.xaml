@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:local="clr-namespace:BA_App"
-
+              xmlns:controls="clr-namespace:BA_App.Model"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms" 
@@ -11,10 +13,10 @@
              xmlns:ListCollection="clr-namespace:System.Collections.Generic;assembly=netstandard" 
              x:Class="BA_App.Views.UpdateUser">
     <StackLayout>
-        <Frame HeightRequest="30" BackgroundColor="Aqua" HorizontalOptions="FillAndExpand">
+        <Frame HeightRequest="30" BackgroundColor="#4dd2ff" HorizontalOptions="FillAndExpand">
             <FlexLayout AlignItems="Center" Direction="Row" JustifyContent="SpaceBetween">
                 <Image Source=''/>
-                <Label  Text="Sửa Nhân Viên" HorizontalTextAlignment="Center" TextColor="Black" FontSize="28" />
+                <Label  Text="Sửa Thông tin Nhân Viên" HorizontalTextAlignment="Center" TextColor="Black" FontSize="28" />
                 <Label></Label>
             </FlexLayout>
         </Frame>
@@ -27,11 +29,11 @@
                                                 ErrorText="{Binding ErName}"
                                                 HasError="{Binding IName}"
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="#b3ecff">
                     <Entry Text="{Binding Name}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="name"/>
+                        <controls:IconView Source="name" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -43,11 +45,11 @@
                                                 ContainerType="Outlined"
                                                 ErrorText="{Binding ErAdress}"
                                                 HasError="{Binding IAdress}"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="#b3ecff">
                     <Entry Text="{Binding Adress}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="home"/>
+                        <controls:IconView Source="home" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -59,11 +61,11 @@
                                                 ContainerType="Outlined"
                                                 ErrorText="{Binding ErManv}"
                                                 HasError="{Binding IManv}"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="#b3ecff">
                     <Entry Text="{Binding Manv}"
                            FontSize="20"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="id"/>
+                        <controls:IconView Source="id" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -75,7 +77,7 @@
                                                 ErrorText="{Binding ErDepartment}"
                                                 HasError="{Binding IDepartment}"
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="#b3ecff">
                     <combobox:SfComboBox HeightRequest="55" 
                                          x:Name="comboBoxDepartment" 
                                          MaximumDropDownHeight="200" 
@@ -92,7 +94,7 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="phong"/>
+                        <controls:IconView Source="phong" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -104,7 +106,7 @@
                                                 ErrorText="{Binding ErGender}"
                                                 HasError="{Binding IGender}"
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0">
+                                                FocusedColor="#b3ecff">
                     <combobox:SfComboBox HeightRequest="55" 
                                          x:Name="comboBoxGender" 
                                          MaximumDropDownHeight="200" 
@@ -121,7 +123,7 @@
                         </combobox:SfComboBox.ComboBoxSource>
                     </combobox:SfComboBox>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="sex"/>
+                        <controls:IconView Source="sex" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -131,13 +133,13 @@
                                                 Hint="Ngày sinh"
                                                 LeadingViewPosition="Inside" 
                                                 ContainerType="Outlined"
-                                                FocusedColor="#00AFA0"
+                                                FocusedColor="#b3ecff"
                                                 HeightRequest="100">
                     <DatePicker Date="{Binding BirthDay}"
-                            TextColor="Blue"
+                            TextColor="Black"
                             FontSize="25"/>
                     <inputLayout:SfTextInputLayout.LeadingView>
-                        <Image Source="date"/>
+                        <controls:IconView Source="date" Foreground="#1ac9ff"/>
                     </inputLayout:SfTextInputLayout.LeadingView>
                 </inputLayout:SfTextInputLayout>
             </FlexLayout>
@@ -148,7 +150,7 @@
                               CornerRadius="100"
                               WidthRequest="100"
                               HeightRequest="50"
-                              BackgroundColor="DarkBlue"
+                              BackgroundColor="#1ac6ff"
                               TextColor="White"
                               Padding="5"/>
             <!--Xoay chờ load-->

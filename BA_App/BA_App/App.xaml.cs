@@ -19,7 +19,7 @@ namespace BA_App
         {
             InitializeComponent();
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("NDY1MDY5QDMxMzkyZTMyMmUzMGRhbHY5MHVhQVhUeEZBR2E5dTVWSDdtVFpXaG1jT0xiTzNLQ2VUQTBBMEk9");
-            await NavigationService.NavigateAsync("NavigationPage/ListViewUser");
+            await NavigationService.NavigateAsync("/Login");
         }
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
@@ -34,6 +34,7 @@ namespace BA_App
             containerRegistry.RegisterForNavigation<DeleteUser, DeleteUserViewModel>();
             containerRegistry.RegisterForNavigation<UpdateUser, UpdateUserViewModel>();
             containerRegistry.RegisterForNavigation<UpdatePassWord, UpdatePassWordViewModel>();
+            containerRegistry.RegisterForNavigation<InfoUser, InfoUserViewModel>();
         }
     }
 }

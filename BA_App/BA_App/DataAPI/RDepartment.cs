@@ -20,7 +20,7 @@ namespace BA_App.DataAPI
             {
                 List<Departments> result = new List<Departments>();
                 //ResponseModel<List<Nhanvien>> resultAPI = new ResponseModel<List<Nhanvien>>();
-                var uri = "http://192.168.108.2:8080/api/Department";
+                var uri = "http://192.168.0.106:8080/api/Department";
                 HttpClient client = new HttpClient();
                 string urlParameters = "";
                 client.BaseAddress = new Uri(uri);                

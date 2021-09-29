@@ -4,66 +4,147 @@
              xmlns:prism="http://prismlibrary.com"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="BA_App.Views.UserInfo"
+             xmlns:controls="clr-namespace:BA_App.Model"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:buttons="clr-namespace:Syncfusion.XForms.Buttons;assembly=Syncfusion.Buttons.XForms" 
              xmlns:local="clr-namespace:BA_App"
              Title="Tài khoản">
     <StackLayout Padding="0">
-        <Frame BackgroundColor="Aqua" HorizontalOptions="FillAndExpand" HeightRequest="30">
+        <Frame BackgroundColor="#4dd2ff" HorizontalOptions="FillAndExpand" HeightRequest="30">
             <FlexLayout Direction="Row" JustifyContent="SpaceBetween">
                 <Label></Label>
-                <Label Text="Tài khoản" Grid.Column="1" TextColor="Black" FontSize="28" HorizontalOptions="Fill"/>
+                <Label Text="Tài khoản" FontAttributes="Bold" Grid.Column="1" TextColor="Black" FontSize="28" HorizontalOptions="Fill"/>
                 <ImageButton x:Name="ImClick" Source="{local:Resource BA_App.img.logout.png}" Command="{Binding Signout}" BackgroundColor="Transparent" >
                 </ImageButton>
             </FlexLayout>
         </Frame>
         <FlexLayout Direction="Row" JustifyContent="Center" BackgroundColor="White" HeightRequest="80" AlignItems="Start" >
-            <Image Source ="{local:Resource BA_App.img.add.png}" HeightRequest="70" WidthRequest="80"  />
-            <FlexLayout FlexLayout.Grow="1" Direction="Column" JustifyContent="Center" AlignItems="Start"  >
+            <Frame HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" Margin="10,10,0,0">
+                <Image Source ="{Binding Myimg}" Margin="0"  Aspect="AspectFill" />
+            </Frame>
+            <FlexLayout FlexLayout.Grow="1" Direction="Column" JustifyContent="Center" AlignItems="Start" Margin="10,0,0,0">
                 <Label x:Name="name" Text="{Binding Myname}"  FontSize="24" />
                 <Label x:Name="id" Text="{Binding Myid}" FontSize="18" />
             </FlexLayout>
         </FlexLayout>
-        <FlexLayout Margin="15,0,15,10" BackgroundColor="Aqua" >
-            <buttons:SfButton  ShowIcon="True" FlexLayout.Grow="1" HeightRequest="50" Background="White" CornerRadius="10" >
-                <buttons:SfButton.Content>
-                    <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
-                        <Label Text="Thông tin" TextColor="DarkBlue" />
-                    </FlexLayout>
-                </buttons:SfButton.Content>
-            </buttons:SfButton>
-            <!--<Image Source="{local:Resource BA_App.img.add.png}"/>
-            <Label Text="Chức năng" FlexLayout.Grow="1" TextColor="DarkBlue" />-->
-        </FlexLayout>
-        <FlexLayout Margin="15,0,15,10">
-            <buttons:SfButton  Command="{Binding ChangePassWord}" x:Name="button" ShowIcon="True" FlexLayout.Grow="1" HeightRequest="50" Background="White" CornerRadius="10" >
-                <buttons:SfButton.Content>
-                    <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
-                        <Image Source="{local:Resource BA_App.img.setting.png}"/>
-                        <Label Text="Đổi mật khẩu" TextColor="DarkBlue" />
-                    </FlexLayout>
-                </buttons:SfButton.Content>
-            </buttons:SfButton>
-        </FlexLayout>
-        <FlexLayout Margin="15,0,15,10">
-            <buttons:SfButton  ShowIcon="True" FlexLayout.Grow="1" HeightRequest="50" Background="White" CornerRadius="10" >
-                <buttons:SfButton.Content>
-                    <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
-                        <Label Text="Làm mới" TextColor="DarkBlue" />
-                    </FlexLayout>
-                </buttons:SfButton.Content>
-            </buttons:SfButton>
-        </FlexLayout>
-        <!--<FlexLayout Margin="15,0,15,10" BackgroundColor="Transparent" >-->
-            <buttons:SfButton   ShowIcon="True" FlexLayout.Grow="1" HeightRequest="50" Background="White" CornerRadius="10" Margin="15,0,15,10">
-                <buttons:SfButton.Content>
-                    <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
-                        <Image Source="{local:Resource BA_App.img.add.png}"/>
-                        <Label Text="Khác" TextColor="DarkBlue" />
-                    </FlexLayout>
-                </buttons:SfButton.Content>
-            </buttons:SfButton>
-        <!--</FlexLayout>-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+                <RowDefinition Height="0.2*" />
+            </Grid.RowDefinitions>
+            <yummy:PancakeView  BackgroundColor="#e6ffff" 
+                                HasShadow="True"  
+                                Margin="10,0,10,0"
+                                HorizontalOptions="FillAndExpand" 
+                                Grid.Column="0"
+                                Grid.Row="0">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Gray"/>
+                </yummy:PancakeView.Shadow>
+                <buttons:SfButton 
+                          ShowIcon="True" 
+                          FlexLayout.Grow="1" 
+                          HeightRequest="50" BackgroundColor="Transparent" >
+                    <buttons:SfButton.Content>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
+                            <controls:IconView Source="ring" Foreground="#1ac9ff"/>
+                            <Label Text="Thông tin" TextColor="DarkBlue" Margin="5,0,0,0" />
+                        </FlexLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+            </yummy:PancakeView>
+            <yummy:PancakeView  BackgroundColor="#e6ffff" 
+                                HasShadow="True"  
+                                Margin="10,0,10,0"
+                                HorizontalOptions="FillAndExpand" 
+                                Grid.Column="0"
+                                Grid.Row="1">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Gray"/>
+                </yummy:PancakeView.Shadow>
+                <buttons:SfButton Command="{Binding ChangePassWord}" 
+                              BackgroundColor="Transparent" 
+                              x:Name="button" 
+                              ShowIcon="True" 
+                              FlexLayout.Grow="1"
+                              HeightRequest="50">
+                    <buttons:SfButton.Content>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
+                            <controls:IconView Source="setting" Foreground="#1ac9ff"/>
+                            <Label Text="Đổi mật khẩu" TextColor="DarkBlue" Margin="5,0,0,0"/>
+                        </FlexLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+            </yummy:PancakeView>
+            <yummy:PancakeView  BackgroundColor="#e6ffff" 
+                                HasShadow="True"  
+                                Margin="10,0,10,0"
+                                HorizontalOptions="FillAndExpand" 
+                                Grid.Column="0"
+                                Grid.Row="2">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Gray"/>
+                </yummy:PancakeView.Shadow>
+                <buttons:SfButton  ShowIcon="True" 
+                              FlexLayout.Grow="1" 
+                              HeightRequest="50" 
+                              BackgroundColor="Transparent">
+                    <buttons:SfButton.Content>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
+                            <controls:IconView Source="edit" Foreground="#1ac9ff"/>
+                            <Label Text="Làm mới" TextColor="DarkBlue" Margin="5,0,0,0" />
+                        </FlexLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+            </yummy:PancakeView>
+            <yummy:PancakeView  BackgroundColor="#e6ffff" 
+                                HasShadow="True"  
+                                Margin="10,0,10,0"
+                                HorizontalOptions="FillAndExpand" 
+                                Grid.Column="0"
+                                Grid.Row="3">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Gray"/>
+                </yummy:PancakeView.Shadow>
+                <buttons:SfButton  ShowIcon="True"
+                              FlexLayout.Grow="1" 
+                              BackgroundColor="Transparent" 
+                              HeightRequest="50">
+                    <buttons:SfButton.Content>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
+                            <controls:IconView Source="help" Foreground="#1ac9ff"/>
+                            <Label Text="Khác" TextColor="DarkBlue" Margin="5,0,0,0" />
+                        </FlexLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+            </yummy:PancakeView>
+            <yummy:PancakeView  BackgroundColor="#e6ffff" 
+                                HasShadow="True"  
+                                Margin="10,0,10,0"
+                                HorizontalOptions="FillAndExpand" 
+                                Grid.Column="0"
+                                Grid.Row="4">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow Color="Gray"/>
+                </yummy:PancakeView.Shadow>
+                <buttons:SfButton ShowIcon="True"
+                              FlexLayout.Grow="1" 
+                              BackgroundColor="Transparent" 
+                              HeightRequest="50">
+                    <buttons:SfButton.Content>
+                        <FlexLayout JustifyContent="Start" AlignItems="Center" Direction="Row">
+                            <controls:IconView Source="manage" Foreground="#1ac9ff"/>
+                            <Label Text="Chức năng" FlexLayout.Grow="1" TextColor="DarkBlue" Margin="5,0,0,0"/>
+                        </FlexLayout>
+                    </buttons:SfButton.Content>
+                </buttons:SfButton>
+            </yummy:PancakeView>
+        </Grid>
     </StackLayout>
 </ContentPage>

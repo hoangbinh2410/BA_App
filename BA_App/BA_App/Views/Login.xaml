@@ -2,6 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
+              xmlns:controls="clr-namespace:BA_App.Model"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              xmlns:inputLayout="clr-namespace:Syncfusion.XForms.TextInputLayout;assembly=Syncfusion.Core.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              xmlns:local="clr-namespace:BA_App"
@@ -10,18 +12,19 @@
     <StackLayout Padding="0">
         <Grid>
             <StackLayout Padding="0" Margin="0">
-                <Frame BackgroundColor="Aqua" HeightRequest="150" HorizontalOptions="FillAndExpand">
-                    <FlexLayout JustifyContent="Center" Direction="Column" AlignItems="Center">
-                        <Image Source="logo2" HeightRequest="80"/>
-                        <Label HorizontalOptions="Center" Text="Phần mềm quản lý nhân viên"/>
-                    </FlexLayout>
+                <Frame BackgroundColor="#4dd2ff" HeightRequest="200" HorizontalOptions="FillAndExpand">
+                   
                 </Frame>
             </StackLayout>
-            <StackLayout Margin="15,150,15,0">
-                <Frame BackgroundColor="White" HasShadow="True"  HeightRequest="700" HorizontalOptions="FillAndExpand">
+            <Grid Margin="15,150,15,0">
+                <yummy:PancakeView  BackgroundColor="White" HasShadow="True" CornerRadius="20,20,20,20"  HeightRequest="650" HorizontalOptions="FillAndExpand">
+                    <yummy:PancakeView.Shadow>
+                        <yummy:DropShadow Color="Gray"/>
+                    </yummy:PancakeView.Shadow>
                     <StackLayout>
-                        <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="ĐĂNG NHẬP" TextColor="Black" FontSize="Medium" FontAttributes="Bold"/>
+                        <StackLayout HorizontalOptions="CenterAndExpand" Margin="0,75,0,0">
+                            <Label HorizontalOptions="Center" Text="Phần mềm quản lý nhân viên" FontSize="16" FontAttributes="Bold" />
+                            <Label Text="ĐĂNG NHẬP" TextColor="Black" FontSize="Medium" FontAttributes="Bold" Margin="40,20,0,0" />
                         </StackLayout>
                         <StackLayout Margin="0,25,0,0">
                             <FlexLayout>
@@ -32,11 +35,11 @@
                                                     ContainerType="Outlined"
                                                     ErrorText="{Binding ErName}"
                                                     HasError="{Binding Name}"
-                                                    FocusedColor="#00AFA0">
+                                                    FocusedColor="#b3ecff">
                                     <Entry Text="{Binding UserName}"
                                FontSize="20"/>
                                     <inputLayout:SfTextInputLayout.LeadingView>
-                                        <Image Source="{local:Resource BA_App.img.avatar.png}"/>
+                                        <controls:IconView Source="avatar1" Foreground="#1ac9ff"/>
                                     </inputLayout:SfTextInputLayout.LeadingView>
                                 </inputLayout:SfTextInputLayout>
                             </FlexLayout>
@@ -48,12 +51,12 @@
                                                     HasError="{Binding Pass}"
                                                     EnablePasswordVisibilityToggle="True"
                                                     ContainerType="Outlined"
-                                                    FocusedColor="#00AFA0">
+                                                    FocusedColor="#b3ecff">
                                     <Entry Text="{Binding PassWord}"
                                        FontSize="20"
                                        IsPassword="True"/>
                                     <inputLayout:SfTextInputLayout.LeadingView>
-                                        <Image Source="{local:Resource BA_App.img.lock.png}"/>
+                                        <controls:IconView Source="pass" Foreground="#1ac9ff"/>
                                     </inputLayout:SfTextInputLayout.LeadingView>
                                 </inputLayout:SfTextInputLayout>
                                 <!--<Entry x:Name="Pass" Placeholder="Password"  IsPassword="True" TextColor="DarkBlue" HorizontalOptions="FillAndExpand"/>-->
@@ -72,8 +75,8 @@
                             </TableView>
                         </StackLayout>
                         <StackLayout>
-                            <Button Text="ĐĂNG NHẬP" Background="DarkBlue" TextColor="White" Margin="15,40,15,0" CornerRadius="50" Command="{Binding LoginCommand}"></Button>
-                            <Label TextColor="Blue" 
+                            <Button Text="ĐĂNG NHẬP" Background="#1ac6ff" TextColor="White" Margin="15,40,15,0" CornerRadius="50" Command="{Binding LoginCommand}"></Button>
+                            <Label TextColor="#33d6ff" 
                        FontSize="20"
                        Text="Quên mật khẩu ?"
                        HorizontalTextAlignment="Center" />
@@ -95,7 +98,7 @@
                        Text="-------- HOẶC --------" 
                        HorizontalTextAlignment="Center" />
                             <Label HorizontalOptions="Center"
-                       TextColor="Blue"
+                       TextColor="#33d6ff"
                        FontSize="20"
                        Text="Tạo tài khoản mới">
                                 <Label.GestureRecognizers>
@@ -104,6 +107,11 @@
                             </Label>
                         </StackLayout>
                     </StackLayout>
+                </yummy:PancakeView>
+            </Grid>
+            <StackLayout HorizontalOptions="Center"  Margin="0,80,0,0" VerticalOptions="Start">
+                <Frame HeightRequest="120" WidthRequest="120" CornerRadius="60" Padding="0">
+                    <Image Source="logo2" Aspect="AspectFill"  Margin="0" />
                 </Frame>
             </StackLayout>
         </Grid>

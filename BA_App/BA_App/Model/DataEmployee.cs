@@ -13,6 +13,21 @@ namespace BA_App.Model
         public string EmployeeSex { get; set; }
         public DateTime EmployeeBirth { get; set; }
         public string EmployeeDepartmentName { get; set; }
+        public string EmployeeImage
+        {
+            get
+            {
+                if (EmployeeSex == "Nam" && ID % 2 == 0)
+                    return "boy1";
+                else if (EmployeeSex == "Nam" && ID % 2 == 1)
+                    return "boy2";
+                else if (EmployeeSex == "Nữ" && ID % 2 == 0)
+                    return "girl1";
+                else
+                    return "girl2";
+            }
+            set { }
+        }
         public string DateFix
         {
             get

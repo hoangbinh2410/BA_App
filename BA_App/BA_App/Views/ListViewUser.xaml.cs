@@ -19,16 +19,16 @@ namespace BA_App.Views
             department.Add(EnumPicKerFilter.QA.GetEnumDescription());
             department.Add(EnumPicKerFilter.PhanMem.GetEnumDescription());
             FilterByDepartment.ItemsSource = department;
-            SwipeListView.DataSource.GroupDescriptors.Add(new GroupDescriptor()
-            {
-                PropertyName = "Name",
-                KeySelector = (object obj1) =>
-                {
-                    var item = (obj1 as DataEmployee);
-                    //var result = item.Name[0];
-                    return item.EmployeeName[0].ToString();
-                }
-            });
+            //SwipeListView.DataSource.GroupDescriptors.Add(new GroupDescriptor()
+            //{
+            //    PropertyName = "Name",
+            //    KeySelector = (object obj1) =>
+            //    {
+            //        var item = (obj1 as DataEmployee);
+            //        //var result = item.Name[0];
+            //        return item.EmployeeName[0].ToString();
+            //    }
+            //});
         }
 
         private void Clicked_ManageNV(object sender, System.EventArgs e)

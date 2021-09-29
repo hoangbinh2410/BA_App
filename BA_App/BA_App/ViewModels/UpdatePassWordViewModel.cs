@@ -144,17 +144,17 @@ namespace BA_App.ViewModels
                     //Chuyển kiểu chuổi thành kiểu byte
                     byte[] inputBytes1 = System.Text.Encoding.ASCII.GetBytes($"{OldPassword}");
                     //mã hóa chuỗi đã chuyển
-                    byte[] hash1 = mh1.ComputeHash(inputBytes);
+                    byte[] hash1 = mh1.ComputeHash(inputBytes1);
                     //tạo đối tượng StringBuilder (làm việc với kiểu dữ liệu lớn)
                     StringBuilder MD5OldPass = new StringBuilder();
 
                     for (int i = 0; i < hash1.Length; i++)
                     {
-                        MD5NewPass.Append(hash1[i].ToString("X2"));
+                        MD5OldPass.Append(hash1[i].ToString("X2"));
                     }
                     Login objc = new Login();
                     var properties = Application.Current.Properties;
-                    if (OldPassword == (string)properties["Password"])
+                    if (MD5OldPass.ToString() == (string)properties["Password"])
                     {
                         objc.Name = (string)properties["UserName"];
                         objc.Password = MD5NewPass.ToString();
@@ -182,11 +182,10 @@ namespace BA_App.ViewModels
                                     Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - pageIndex + 1]);
                                     Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - pageIndex + 2]);
                                 }
-
                             }
                             else
                             {
-                                StatusText = "Error!! Sai mat khau";
+                                StatusText = "Error!!";
                                 ColorText = "red";
                             }
                         }
@@ -194,7 +193,11 @@ namespace BA_App.ViewModels
                         {
                             //FileHelper.GeneratorFileByDay(ex.ToString(), MethodBase.GetCurrentMethod().Name);
                         }
-
+                    }
+                    else
+                    {                      
+                            StatusText = "Error!! Sai mat khau";
+                            ColorText = "red";
                     }
                 }
                 else
@@ -207,6 +210,7 @@ namespace BA_App.ViewModels
                     ColorText = "red";
                 }
             }
+            IsBusy = false;
         }
     }
 }

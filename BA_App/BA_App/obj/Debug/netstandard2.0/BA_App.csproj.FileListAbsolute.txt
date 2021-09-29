@@ -19,3 +19,4 @@ D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\DeleteUser.xaml.g
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\UpdateUser.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\UpdatePassWord.xaml.g.cs
 D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\BA_App.GeneratedMSBuildEditorConfig.editorconfig
+D:\BA_Demo\BA_App\BA_App\BA_App\obj\Debug\netstandard2.0\Views\InfoUser.xaml.g.cs

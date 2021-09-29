@@ -14,7 +14,9 @@ namespace BA_App.ViewModels
     {
         private string _myname = string.Empty;
         private string _myid = string.Empty;
-       // public Nhanvien nhanvien;
+        private string _myimg = string.Empty;
+
+        // public Nhanvien nhanvien;
         private List<Employees> WorkList = CRUD_Nhanvien.GetListWorker();
         public Command Signout { get; }
         public Command ChangePassWord { get; }
@@ -26,6 +28,11 @@ namespace BA_App.ViewModels
         {
             get { return _myid; }
             set { SetProperty(ref _myid, value); }
+        }
+        public string Myimg
+        {
+            get { return _myimg; }
+            set { SetProperty(ref _myimg, value); }
         }
         private readonly INavigationService _navigationService;
         public UserInfoViewModel(INavigationService navigationService)
@@ -45,6 +52,7 @@ namespace BA_App.ViewModels
             var userinfo = query.FirstOrDefault();
             Myname = userinfo.EmployeeName;
             Myid = userinfo.EmployeeId;
+            Myimg = userinfo.EmployeeImage;
         }
         private async void ChangePassWordClicked(object obj)
         {
@@ -54,12 +62,12 @@ namespace BA_App.ViewModels
         private async void SignoutClicked(object obj)
         {
             //Chuyển đến trang tạo tài khoản khi cLick
-            await _navigationService.NavigateAsync("Login");
-            var pageIndex = Application.Current.MainPage.Navigation.NavigationStack.Count;
-            if (pageIndex == 2)
-            {
-                Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - pageIndex]);
-            }
+            await _navigationService.NavigateAsync("/Login");
+            //var pageIndex = Application.Current.MainPage.Navigation.NavigationStack.Count;
+            //if (pageIndex == 2)
+            //{
+            //    Application.Current.MainPage.Navigation.RemovePage(Application.Current.MainPage.Navigation.NavigationStack[Application.Current.MainPage.Navigation.NavigationStack.Count - pageIndex]);
+            //}
         }
     }
 }

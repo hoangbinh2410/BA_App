@@ -31,7 +31,7 @@ namespace BA_App.DataAPI
             {
                 List<Employees> result = new List<Employees>();
                 //ResponseModel<List<Nhanvien>> resultAPI = new ResponseModel<List<Nhanvien>>();
-                var uri = "http://192.168.108.2:8080/api/Home";
+                var uri = "http://192.168.0.106:8080/api/Home";
                 HttpClient client = new HttpClient();
                 string urlParameters = "";
                 client.BaseAddress = new Uri(uri);
@@ -68,7 +68,7 @@ namespace BA_App.DataAPI
             try
             {
                
-                string url = "http://192.168.108.2:8080/api/Home/CreatNV";
+                string url = "http://192.168.0.106:8080/api/Home/CreatNV";
                 HttpClient client = new HttpClient();
                 string jsonData = JsonConvert.SerializeObject(nhanvien);
                 using (var wc = new HttpClient())
@@ -96,7 +96,7 @@ namespace BA_App.DataAPI
             ResponseModel<Employees> resultAPI = new ResponseModel<Employees>();
             try
             {
-                string url = "http://192.168.108.2:8080/api/Home/UpdateNv";
+                string url = "http://192.168.0.106:8080/api/Home/UpdateNv";
                 using (var wc = new HttpClient())
                 {
                     //wc.DefaultRequestHeaders.Add("Authorization", $"Bearer {VariableSharing._token}");
@@ -122,7 +122,7 @@ namespace BA_App.DataAPI
         {
             bool result = false;
             ResponseModel<bool> resultAPI = new ResponseModel<bool>();
-            string URL = "http://192.168.108.2:8080/api/Home/DeleteNv/";
+            string URL = "http://192.168.0.106:8080/api/Home/DeleteNv/";
             string urlParameters = $"{IDnv}";
             //string urlParameters = "";
             HttpClient client = new HttpClient();

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "VgMGNDDuoBXx4WsUT0Flv2zdCtRDngaI4CIhtj/Vu2g4kPE98j3jer3cBh1e4i/2upvcCzwDOAoq3zzlESLz3g==",
+  "dgSpecHash": "K8okXAUzWpdwgBb1PjQAn6LYwHL5EVbyI2+ThHcpKoUod4QyEr2WOB5S3g5itNjfyh+N06bb7eR4UGh8cTEvsw==",
   "success": true,
   "projectFilePath": "D:\\BA_Demo\\BA_App\\BA_App\\BA_App.Android\\BA_App.Android.csproj",
   "expectedPackageFiles": [
@@ -17,7 +17,15 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sfcombobox\\19.2.0.56\\syncfusion.xamarin.sfcombobox.19.2.0.56.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sflistview\\19.2.0.56\\syncfusion.xamarin.sflistview.19.2.0.56.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\syncfusion.xamarin.sfpicker\\19.2.0.56\\syncfusion.xamarin.sfpicker.19.2.0.56.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\system.componentmodel\\4.3.0\\system.componentmodel.4.3.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.arch.core.common\\1.1.1.3\\xamarin.android.arch.core.common.1.1.1.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.arch.lifecycle.common\\1.1.1.3\\xamarin.android.arch.lifecycle.common.1.1.1.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.arch.lifecycle.runtime\\1.1.1.3\\xamarin.android.arch.lifecycle.runtime.1.1.1.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.support.annotations\\28.0.0.3\\xamarin.android.support.annotations.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.support.collections\\28.0.0.3\\xamarin.android.support.collections.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.support.compat\\28.0.0.3\\xamarin.android.support.compat.28.0.0.3.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.android.support.versionedparcelable\\28.0.0.3\\xamarin.android.support.versionedparcelable.28.0.0.3.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.activity\\1.0.0.1\\xamarin.androidx.activity.1.0.0.1.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.androidx.annotation\\1.1.0.1\\xamarin.androidx.annotation.1.1.0.1.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.androidx.appcompat\\1.1.0.1\\xamarin.androidx.appcompat.1.1.0.1.nupkg.sha512",
@@ -62,6 +70,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.essentials\\1.5.3.2\\xamarin.essentials.1.5.3.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.essentials.interfaces\\1.5.3.2\\xamarin.essentials.interfaces.1.5.3.2.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.forms\\4.8.0.1364\\xamarin.forms.4.8.0.1364.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\xamarin.forms.pancakeview\\2.0.1.707\\xamarin.forms.pancakeview.2.0.1.707.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.google.android.material\\1.0.0.1\\xamarin.google.android.material.1.0.0.1.nupkg.sha512"
   ],
   "logs": []

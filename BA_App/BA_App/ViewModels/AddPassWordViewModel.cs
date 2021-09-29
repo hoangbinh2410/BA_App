@@ -1,5 +1,6 @@
 ﻿using BA_App.DataAPI;
 using BA_App.Model;
+using Prism.AppModel;
 using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Navigation;
@@ -201,5 +202,15 @@ namespace BA_App.ViewModels
                 IsBusy = false;
             }
         }
+
+        //public void OnAppearing()
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //public void OnDisappearing()
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }

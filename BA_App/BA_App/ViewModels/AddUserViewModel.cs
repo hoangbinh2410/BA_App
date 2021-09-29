@@ -2,6 +2,7 @@
 using BA_App.Model;
 using Prism.Commands;
 using Prism.Mvvm;
+using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -99,8 +100,10 @@ namespace BA_App.ViewModels
 
         public DateTime BirthDay = DateTime.Now;
         public Command AddWorkerCommand { get; }
-        public AddUserViewModel()
+        private readonly INavigationService _navigationService;
+        public AddUserViewModel(INavigationService navigationService)
         {
+            _navigationService = navigationService;
             AddWorkerCommand = new Command(AddWorkerClicked);
             Title = "Thêm công nhân";
 
@@ -173,6 +176,7 @@ namespace BA_App.ViewModels
                         StatusText = "Đã thêm thành công !!!";
                         Color = "blue";
                         MessagingCenter.Send<AddUserViewModel>(this, "Add");
+                        await _navigationService.GoBackAsync();
                     }
                     else
                     {
